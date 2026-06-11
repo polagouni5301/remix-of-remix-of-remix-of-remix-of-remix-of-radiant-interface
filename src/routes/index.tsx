@@ -29,7 +29,7 @@ function Home() {
     setOpen(true);
   };
 
-  const handleDiagnoseSearchSearch = () => {
+  const handleDiagnoseSearch = () => {
     const match =
       campaigns.find((c) => c.id === query.trim()) ||
       campaigns.find((c) => c.name.toLowerCase().includes(query.trim().toLowerCase()));
