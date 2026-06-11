@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DiagnoseIdRouteImport } from './routes/diagnose.$id'
 import { Route as CampaignIdRouteImport } from './routes/campaign.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DiagnoseIdRoute = DiagnoseIdRouteImport.update({
+  id: '/diagnose/$id',
+  path: '/diagnose/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CampaignIdRoute = CampaignIdRouteImport.update({
@@ -26,27 +32,31 @@ const CampaignIdRoute = CampaignIdRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/campaign/$id': typeof CampaignIdRoute
+  '/diagnose/$id': typeof DiagnoseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/campaign/$id': typeof CampaignIdRoute
+  '/diagnose/$id': typeof DiagnoseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/campaign/$id': typeof CampaignIdRoute
+  '/diagnose/$id': typeof DiagnoseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/campaign/$id'
+  fullPaths: '/' | '/campaign/$id' | '/diagnose/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/campaign/$id'
-  id: '__root__' | '/' | '/campaign/$id'
+  to: '/' | '/campaign/$id' | '/diagnose/$id'
+  id: '__root__' | '/' | '/campaign/$id' | '/diagnose/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CampaignIdRoute: typeof CampaignIdRoute
+  DiagnoseIdRoute: typeof DiagnoseIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/diagnose/$id': {
+      id: '/diagnose/$id'
+      path: '/diagnose/$id'
+      fullPath: '/diagnose/$id'
+      preLoaderRoute: typeof DiagnoseIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/campaign/$id': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CampaignIdRoute: CampaignIdRoute,
+  DiagnoseIdRoute: DiagnoseIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

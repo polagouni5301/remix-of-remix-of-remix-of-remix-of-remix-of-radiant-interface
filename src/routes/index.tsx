@@ -22,14 +22,26 @@ function Home() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
+  const [selected, setSelected] = useState(/** @type {any} */(null));
 
-  const handleDiagnose = () => {
+  const openModal = (campaign) => {
+    setSelected(campaign);
+    setOpen(true);
+  };
+
+  const handleDiagnoseSearch = () => {
     const match =
       campaigns.find((c) => c.id === query.trim()) ||
       campaigns.find((c) => c.name.toLowerCase().includes(query.trim().toLowerCase()));
-    if (match) navigate({ to: "/campaign/$id", params: { id: match.id } });
-    else setOpen(true);
+    openModal(match || campaigns[0]);
   };
+
+  const runDiagnosis = () => {
+    if (!selected) return;
+    setOpen(false);
+    navigate({ to: "/diagnose/$id", params: { id: selected.id } });
+  };
+
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -75,12 +87,12 @@ function Home() {
                 <input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleDiagnose()}
+                  onKeyDown={(e) => e.key === "Enter" && handleDiagnoseSearch()}
                   placeholder="Search any campaign by name or ID — e.g. Cool-O-Mat"
                   className="flex-1 bg-transparent px-2 py-2 text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                 />
                 <button
-                  onClick={handleDiagnose}
+                  onClick={handleDiagnoseSearch}
                   className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[14px] font-semibold text-primary-foreground shadow-[0_8px_24px_-12px_oklch(0.32_0.07_160/0.7)] transition hover:opacity-95"
                 >
                   <Sparkles className="h-4 w-4" />
@@ -109,7 +121,7 @@ function Home() {
 
             <div className="mt-6 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {campaigns.map((c, i) => (
-                <CampaignCard key={c.id} campaign={c} index={i} />
+                <CampaignCard key={c.id} campaign={c} index={i} onClick={openModal} />
               ))}
             </div>
 
@@ -192,8 +204,10 @@ function Home() {
       <DiagnoseModal
         open={open}
         onClose={() => setOpen(false)}
-        onSubmit={() => setOpen(false)}
+        onSubmit={runDiagnosis}
+        campaignName={selected?.name || ""}
       />
+
     </div>
   );
 }
