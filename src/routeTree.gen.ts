@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LandingRouteImport } from './routes/landing'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as DiagnoseIdRouteImport } from './routes/diagnose.$id'
 import { Route as CampaignIdRouteImport } from './routes/campaign.$id'
 
+const LandingRoute = LandingRouteImport.update({
+  id: '/landing',
+  path: '/landing',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,36 +37,47 @@ const CampaignIdRoute = CampaignIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/landing': typeof LandingRoute
   '/campaign/$id': typeof CampaignIdRoute
   '/diagnose/$id': typeof DiagnoseIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/landing': typeof LandingRoute
   '/campaign/$id': typeof CampaignIdRoute
   '/diagnose/$id': typeof DiagnoseIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/landing': typeof LandingRoute
   '/campaign/$id': typeof CampaignIdRoute
   '/diagnose/$id': typeof DiagnoseIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/campaign/$id' | '/diagnose/$id'
+  fullPaths: '/' | '/landing' | '/campaign/$id' | '/diagnose/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/campaign/$id' | '/diagnose/$id'
-  id: '__root__' | '/' | '/campaign/$id' | '/diagnose/$id'
+  to: '/' | '/landing' | '/campaign/$id' | '/diagnose/$id'
+  id: '__root__' | '/' | '/landing' | '/campaign/$id' | '/diagnose/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LandingRoute: typeof LandingRoute
   CampaignIdRoute: typeof CampaignIdRoute
   DiagnoseIdRoute: typeof DiagnoseIdRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/landing': {
+      id: '/landing'
+      path: '/landing'
+      fullPath: '/landing'
+      preLoaderRoute: typeof LandingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +104,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LandingRoute: LandingRoute,
   CampaignIdRoute: CampaignIdRoute,
   DiagnoseIdRoute: DiagnoseIdRoute,
 }
