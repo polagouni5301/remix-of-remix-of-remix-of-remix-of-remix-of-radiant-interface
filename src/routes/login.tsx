@@ -52,11 +52,11 @@ function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="grid min-h-screen grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
+    <div className="h-screen overflow-hidden bg-background text-foreground">
+      <div className="grid h-full grid-cols-1 lg:grid-cols-[1.05fr_1fr]">
         {/* LEFT: Branding */}
         <section
-          className="relative hidden overflow-hidden p-12 lg:flex lg:flex-col lg:justify-between"
+          className="relative hidden overflow-hidden p-10 lg:flex lg:flex-col lg:justify-between"
           style={{
             background:
               "linear-gradient(135deg, oklch(0.52 0.19 28) 0%, oklch(0.62 0.2 35) 55%, oklch(0.68 0.2 55) 100%)",
@@ -140,27 +140,27 @@ function LoginPage() {
         </section>
 
         {/* RIGHT: Form */}
-        <section className="flex flex-col">
-          <header className="flex items-center justify-between px-6 py-5 lg:hidden">
+        <section className="flex h-full flex-col overflow-hidden">
+          <header className="flex items-center justify-between px-6 py-4 lg:hidden">
             <LocaliQLogo />
           </header>
 
-          <div className="flex flex-1 items-center justify-center px-6 py-10">
+          <div className="flex flex-1 items-center justify-center overflow-hidden px-6 py-6">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
               className="w-full max-w-md"
             >
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-[0_30px_60px_-30px_oklch(0.52_0.19_28/0.2)]">
-                <h2 className="font-display text-[28px] font-semibold tracking-tight">
+              <div className="rounded-2xl border border-border bg-card p-7 shadow-[0_30px_60px_-30px_oklch(0.52_0.19_28/0.2)]">
+                <h2 className="font-display text-[26px] font-semibold tracking-tight">
                   Welcome back
                 </h2>
-                <p className="mt-1.5 text-[14px] text-muted-foreground">
+                <p className="mt-1.5 text-[13px] text-muted-foreground">
                   Sign in to your workspace to continue diagnosing campaigns.
                 </p>
 
-                <form onSubmit={submit} className="mt-7 space-y-4">
+                <form onSubmit={submit} className="mt-5 space-y-3.5">
                   {error && (
                     <div className="flex items-start gap-2 rounded-lg border border-destructive/30 bg-destructive/5 px-3 py-2 text-[13px] text-destructive">
                       <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
@@ -251,31 +251,10 @@ function LoginPage() {
                       </>
                     )}
                   </button>
-
-                  <div className="relative my-2 flex items-center">
-                    <div className="h-px flex-1 bg-border" />
-                    <span className="px-3 text-[11px] uppercase tracking-wider text-muted-foreground">
-                      or
-                    </span>
-                    <div className="h-px flex-1 bg-border" />
-                  </div>
-
-                  <button
-                    type="button"
-                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-input bg-background px-4 py-2.5 text-[14px] font-semibold text-foreground transition hover:bg-secondary"
-                  >
-                    <svg className="h-4 w-4" viewBox="0 0 24 24">
-                      <path
-                        fill="#EA4335"
-                        d="M12 10.2v3.9h5.5c-.2 1.3-1.6 3.9-5.5 3.9-3.3 0-6-2.7-6-6s2.7-6 6-6c1.9 0 3.1.8 3.8 1.5l2.6-2.5C16.7 3.5 14.6 2.5 12 2.5 6.8 2.5 2.5 6.8 2.5 12S6.8 21.5 12 21.5c6.9 0 9.5-4.8 9.5-9.3 0-.6-.1-1.1-.2-1.5H12z"
-                      />
-                    </svg>
-                    Sign in with Google
-                  </button>
                 </form>
               </div>
 
-              <p className="mt-5 text-center text-[13px] text-muted-foreground">
+              <p className="mt-4 text-center text-[13px] text-muted-foreground">
                 New to LocaliQ?{" "}
                 <a href="#" className="font-semibold text-primary hover:underline">
                   Request Access
@@ -283,17 +262,6 @@ function LoginPage() {
               </p>
             </motion.div>
           </div>
-
-          <footer className="border-t border-border px-6 py-4">
-            <div className="mx-auto flex max-w-md flex-wrap items-center justify-between gap-2 text-[12px] text-muted-foreground">
-              <span>© 2026 LocaliQ</span>
-              <div className="flex gap-4">
-                <a href="#" className="hover:text-foreground">Privacy</a>
-                <a href="#" className="hover:text-foreground">Terms</a>
-                <a href="#" className="hover:text-foreground">Support</a>
-              </div>
-            </div>
-          </footer>
         </section>
       </div>
     </div>
