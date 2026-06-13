@@ -31,6 +31,22 @@ export const campaigns = [
     metric: { label: "CPL (7d)", value: "$57", vs: "vs $45", tone: "warning" },
     lastActionDays: 4,
   },
+  {
+    id: "6620331",
+    vertical: "Dental",
+    name: "Bright Smile Dental",
+    note: "Brand search is flat — non-brand keywords are losing share.",
+    metric: { label: "Imp Share", value: "61%", vs: "vs 78%", tone: "warning" },
+    lastActionDays: 13,
+  },
+  {
+    id: "9013477",
+    vertical: "Legal",
+    name: "Harbor & Vale Attorneys",
+    note: "Strong week — conversions doubled after the LP swap.",
+    metric: { label: "Conv (7d)", value: "42", vs: "vs 21", tone: "success" },
+    lastActionDays: 2,
+  },
 ];
 
 export const outcomes = [
