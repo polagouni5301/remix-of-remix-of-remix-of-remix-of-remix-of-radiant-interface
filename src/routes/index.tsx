@@ -5,14 +5,10 @@ import {
   Sparkles,
   ArrowUpRight,
   Filter,
-  Plus,
   Clock,
   TrendingUp,
   TrendingDown,
   Activity,
-  CheckCircle2,
-  AlertTriangle,
-  Bell,
   LayoutGrid,
   Rows3,
   Database,
@@ -62,7 +58,11 @@ function Home() {
       if (q && !(c.name.toLowerCase().includes(q) || c.id.includes(q))) return false;
       if (filter === "Needs a look") return toneOf(c) === "warning";
       if (filter === "Wins") return toneOf(c) === "success";
-      if (filter === "Pacing") return c.metric.label.toLowerCase().includes("util") || c.metric.label.toLowerCase().includes("imp");
+      if (filter === "Pacing")
+        return (
+          c.metric.label.toLowerCase().includes("util") ||
+          c.metric.label.toLowerCase().includes("imp")
+        );
       if (filter === "CPL") return c.metric.label.toLowerCase().includes("cpl");
       return true;
     });
@@ -71,7 +71,9 @@ function Home() {
   const handleSearch = () => {
     const match =
       baseCampaigns.find((c) => c.id === query.trim()) ||
-      baseCampaigns.find((c) => c.name.toLowerCase().includes(query.trim().toLowerCase()));
+      baseCampaigns.find((c) =>
+        c.name.toLowerCase().includes(query.trim().toLowerCase()),
+      );
     openModal(match || baseCampaigns[0]);
   };
 
@@ -81,63 +83,52 @@ function Home() {
     navigate({ to: "/diagnose/$id", params: { id: selected.id } });
   };
 
-  const counts = {
-    total: baseCampaigns.length,
-    warning: baseCampaigns.filter((c) => toneOf(c) === "warning").length,
-    success: baseCampaigns.filter((c) => toneOf(c) === "success").length,
-  };
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <Header />
 
-      <main className="mx-auto max-w-[1320px] px-8 pb-24 pt-10">
-        {/* WORKSPACE STRIP */}
+      <main className="mx-auto max-w-[1320px] px-6 pb-24 pt-12 md:px-10">
+        {/* GREETING — editorial */}
         <motion.section
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="relative"
         >
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <div className="text-[11px] font-mono uppercase tracking-[0.2em] text-primary">
-                Workspace · Tuesday
-              </div>
-              <h1 className="mt-2 font-display text-[40px] font-semibold leading-[1.05] tracking-tight">
-                Good morning, Jordan. <span className="text-muted-foreground">Three accounts changed overnight.</span>
-              </h1>
-              <p className="mt-2 max-w-2xl text-[14px] text-muted-foreground">
-                Scout watched your book while you were gone. Nothing is on fire — but a
-                few campaigns have drifted enough to be worth a glance.
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              <button className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-[13px] font-medium text-foreground hover:border-primary/40">
-                <Bell className="h-3.5 w-3.5" /> 3 alerts
-              </button>
-              <button className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_8px_20px_-10px_oklch(0.52_0.19_28/0.7)] hover:opacity-95">
-                <Plus className="h-3.5 w-3.5" /> New diagnosis
-              </button>
-            </div>
+          <div className="flex items-center gap-3 text-[11px] font-mono uppercase tracking-[0.22em] text-muted-foreground">
+            <span className="text-primary">Workspace</span>
+            <span className="h-px w-10 bg-border" />
+            <span>Tuesday · 09:14 PT</span>
           </div>
 
-          {/* SUMMARY KPIs */}
-          <div className="mt-7 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {[
-              { i: Activity, l: "Tracked campaigns", v: String(counts.total), s: "across 3 verticals" },
-              { i: AlertTriangle, l: "Needs a look", v: String(counts.warning), s: "drift detected" },
-              { i: CheckCircle2, l: "Wins this week", v: String(counts.success + 4), s: "+12% vs last week" },
-              { i: Clock, l: "Time reclaimed", v: "5h 47m", s: "vs manual workflow" },
-            ].map((k) => (
-              <div key={k.l} className="rounded-2xl border border-border bg-card p-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[11px] uppercase tracking-widest text-muted-foreground">{k.l}</span>
-                  <k.i className="h-3.5 w-3.5 text-primary" />
-                </div>
-                <div className="mt-2 font-display text-[28px] font-semibold tracking-tight">{k.v}</div>
-                <div className="mt-0.5 text-[12px] text-muted-foreground">{k.s}</div>
-              </div>
-            ))}
+          <div className="mt-5 grid grid-cols-1 items-end gap-6 lg:grid-cols-[1.5fr_1fr]">
+            <h1 className="font-display text-[clamp(40px,6vw,72px)] font-semibold leading-[0.98] tracking-tight">
+              <span className="block text-muted-foreground/70">Good morning,</span>
+              <span className="relative inline-block">
+                <span className="bg-gradient-to-r from-primary via-[oklch(0.6_0.2_38)] to-[oklch(0.72_0.2_55)] bg-clip-text text-transparent">
+                  Jordan.
+                </span>
+                <svg
+                  aria-hidden
+                  viewBox="0 0 200 10"
+                  className="absolute -bottom-1 left-0 w-full"
+                >
+                  <path
+                    d="M2 6 Q 50 1 100 4 T 198 4"
+                    stroke="oklch(0.62 0.2 38)"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    fill="none"
+                    opacity="0.45"
+                  />
+                </svg>
+              </span>
+            </h1>
+
+            <p className="max-w-md text-[14px] leading-relaxed text-muted-foreground lg:text-right">
+              Six campaigns are in your book today. Scout has already done a
+              quiet pass — pick whichever one is on your mind and dig in.
+            </p>
           </div>
         </motion.section>
 
@@ -145,8 +136,8 @@ function Home() {
         <motion.section
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.05 }}
-          className="relative mt-8 overflow-hidden rounded-3xl border border-border p-6 md:p-8"
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="relative mt-10 overflow-hidden rounded-3xl border border-border p-6 md:p-8"
           style={{
             background:
               "linear-gradient(120deg, oklch(0.97 0.04 55) 0%, oklch(0.95 0.07 35) 100%)",
@@ -155,7 +146,10 @@ function Home() {
           <div
             aria-hidden
             className="pointer-events-none absolute -right-20 -top-24 h-[300px] w-[300px] rounded-full opacity-30"
-            style={{ background: "radial-gradient(closest-side, oklch(0.62 0.2 35 / 0.45), transparent)" }}
+            style={{
+              background:
+                "radial-gradient(closest-side, oklch(0.62 0.2 35 / 0.45), transparent)",
+            }}
           />
           <div className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
@@ -174,11 +168,11 @@ function Home() {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
                 placeholder="Search by name or ID — e.g. Cool-O-Mat or 5212017"
-                className="flex-1 bg-transparent px-2 py-2 text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none"
+                className="min-w-0 flex-1 bg-transparent px-2 py-2 text-[14px] text-foreground placeholder:text-muted-foreground focus:outline-none"
               />
               <button
                 onClick={handleSearch}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_8px_24px_-12px_oklch(0.52_0.19_28/0.7)] hover:opacity-95"
+                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_8px_24px_-12px_oklch(0.52_0.19_28/0.7)] hover:opacity-95"
               >
                 <Sparkles className="h-3.5 w-3.5" /> Diagnose
               </button>
@@ -186,8 +180,8 @@ function Home() {
           </div>
         </motion.section>
 
-        {/* TOOLBAR */}
-        <section className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_360px]">
+        {/* TOOLBAR + GRID */}
+        <section className="mt-12 grid grid-cols-1 gap-10 lg:grid-cols-[1fr_360px]">
           <div>
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
@@ -195,7 +189,8 @@ function Home() {
                   Your book — {filtered.length} of {baseCampaigns.length}
                 </h2>
                 <p className="mt-1 text-[13px] text-muted-foreground">
-                  Sorted by how long since you last touched them. Treat this as a glance, not a queue.
+                  Sorted by how long since you last touched them. Treat this as
+                  a glance, not a queue.
                 </p>
               </div>
               <div className="flex items-center gap-2">
@@ -218,7 +213,9 @@ function Home() {
                   <button
                     onClick={() => setView("grid")}
                     className={`grid h-7 w-7 place-items-center rounded-full ${
-                      view === "grid" ? "bg-foreground text-background" : "text-muted-foreground"
+                      view === "grid"
+                        ? "bg-foreground text-background"
+                        : "text-muted-foreground"
                     }`}
                     aria-label="Grid view"
                   >
@@ -227,7 +224,9 @@ function Home() {
                   <button
                     onClick={() => setView("list")}
                     className={`grid h-7 w-7 place-items-center rounded-full ${
-                      view === "list" ? "bg-foreground text-background" : "text-muted-foreground"
+                      view === "list"
+                        ? "bg-foreground text-background"
+                        : "text-muted-foreground"
                     }`}
                     aria-label="List view"
                   >
@@ -237,7 +236,6 @@ function Home() {
               </div>
             </div>
 
-            {/* GRID VIEW */}
             {view === "grid" && (
               <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
                 {filtered.map((c, i) => {
@@ -248,7 +246,8 @@ function Home() {
                       : tone === "success"
                         ? "bg-[oklch(0.96_0.05_155)] text-[oklch(0.4_0.12_155)] border-[oklch(0.85_0.08_155)]"
                         : "bg-secondary text-muted-foreground border-border";
-                  const Trend = tone === "warning" ? TrendingDown : tone === "success" ? TrendingUp : Activity;
+                  const Trend =
+                    tone === "warning" ? TrendingDown : tone === "success" ? TrendingUp : Activity;
                   return (
                     <motion.button
                       type="button"
@@ -322,7 +321,6 @@ function Home() {
               </div>
             )}
 
-            {/* LIST VIEW */}
             {view === "list" && (
               <div className="mt-6 overflow-hidden rounded-2xl border border-border bg-card">
                 <div className="grid grid-cols-[1.4fr_1fr_1fr_auto] gap-4 border-b border-border bg-secondary/50 px-5 py-3 text-[11px] font-mono uppercase tracking-widest text-muted-foreground">
@@ -340,10 +338,12 @@ function Home() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: i * 0.03 }}
-                      className="grid w-full grid-cols-[1.4fr_1fr_1fr_auto] items-center gap-4 border-b border-border px-5 py-4 text-left transition hover:bg-secondary/40 last:border-b-0"
+                      className="grid w-full grid-cols-[1.4fr_1fr_1fr_auto] items-center gap-4 border-b border-border px-5 py-4 text-left transition last:border-b-0 hover:bg-secondary/40"
                     >
-                      <div>
-                        <div className="font-display text-[15px] font-semibold">{c.name}</div>
+                      <div className="min-w-0">
+                        <div className="truncate font-display text-[15px] font-semibold">
+                          {c.name}
+                        </div>
                         <div className="mt-0.5 text-[12px] text-muted-foreground">
                           {c.vertical} · #{c.id}
                         </div>
@@ -367,7 +367,9 @@ function Home() {
                           </span>
                         </div>
                       </div>
-                      <div className="text-[13px] text-muted-foreground">{c.lastActionDays} days ago</div>
+                      <div className="text-[13px] text-muted-foreground">
+                        {c.lastActionDays} days ago
+                      </div>
                       <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
                     </motion.button>
                   );
@@ -390,8 +392,8 @@ function Home() {
                 <span className="font-semibold text-foreground">
                   Looking for a campaign that isn't here?
                 </span>{" "}
-                Use the search above — Scout can run a diagnosis on anything in your
-                book. You always pick what's worth your time.
+                Use the search above — Scout can run a diagnosis on anything in
+                your book. You always pick what's worth your time.
               </p>
             </div>
           </div>
@@ -426,13 +428,19 @@ function Home() {
                       <span className="text-[14px] font-semibold text-foreground">
                         {o.account}
                       </span>
-                      <span className="text-[11px] text-muted-foreground">{o.ago}</span>
+                      <span className="text-[11px] text-muted-foreground">
+                        {o.ago}
+                      </span>
                     </div>
-                    <p className="mt-1 text-[13px] text-muted-foreground">{o.action}</p>
+                    <p className="mt-1 text-[13px] text-muted-foreground">
+                      {o.action}
+                    </p>
                     <div className="mt-2 flex items-center gap-2">
                       <span
                         className={`text-[13px] font-semibold ${
-                          o.tone === "success" ? "text-[oklch(0.5_0.13_155)]" : "text-foreground"
+                          o.tone === "success"
+                            ? "text-[oklch(0.5_0.13_155)]"
+                            : "text-foreground"
                         }`}
                       >
                         {o.result}
@@ -452,8 +460,8 @@ function Home() {
                   <Sparkles className="h-3 w-3" /> Scout suggests
                 </div>
                 <p className="mt-2 text-[13px] leading-relaxed text-foreground">
-                  Two HVAC campaigns share the same drifting negative-keyword list.
-                  Want me to diagnose them as a group?
+                  Two HVAC campaigns share the same drifting negative-keyword
+                  list. Want me to diagnose them as a group?
                 </p>
                 <button className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-primary hover:underline">
                   Run group diagnosis <ArrowUpRight className="h-3 w-3" />
