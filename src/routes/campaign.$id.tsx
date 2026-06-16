@@ -329,7 +329,7 @@ function Detail() {
               className="relative mt-6 overflow-hidden rounded-3xl border border-border"
               style={{
                 background:
-                  "linear-gradient(135deg, oklch(0.97 0.04 55) 0%, oklch(0.95 0.07 35) 60%, oklch(0.94 0.09 30) 100%)",
+                  "linear-gradient(135deg, oklch(0.946 0.016 82) 0%, oklch(0.94 0.05 45) 60%, oklch(0.94 0.05 45) 100%)",
               }}
             >
               <div
@@ -512,7 +512,7 @@ function Detail() {
                 className="h-1 w-full"
                 style={{
                   background:
-                    "linear-gradient(90deg, oklch(0.52 0.19 28), oklch(0.68 0.2 55))",
+                    "linear-gradient(90deg, oklch(0.665 0.215 36), oklch(0.78 0.13 40))",
                 }}
               />
               <div className="grid grid-cols-1 gap-6 p-8 lg:grid-cols-[1fr_320px]">
@@ -855,7 +855,7 @@ function AppliedScreen({
               className="mt-5 flex items-start gap-3 rounded-2xl px-5 py-4"
               style={{
                 background:
-                  "linear-gradient(120deg, oklch(0.96 0.03 240) 0%, oklch(0.97 0.04 55) 100%)",
+                  "linear-gradient(120deg, oklch(0.92 0.04 268) 0%, oklch(0.946 0.016 82) 100%)",
               }}
             >
               <Timer className="mt-0.5 h-5 w-5 text-primary" />
@@ -1046,8 +1046,8 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
         <div className="border-t border-border pt-4">
           <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="80% of spend on a single publisher." />
           <PublisherBars data={[
-            { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.62 0.2 38)" },
-            { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.48 0.16 245)" },
+            { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.665 0.215 36)" },
+            { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.38 0.16 268)" },
             { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.7 0.02 260)" },
           ]} />
         </div>
@@ -1071,10 +1071,10 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
       <div className="mt-5 space-y-5">
         <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="Drop is uniform across all publishers." />
         <PublisherBars data={[
-          { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.48 0.16 245)" },
-          { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.62 0.2 200)" },
-          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.78 0.16 80)" },
-          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.62 0.2 38)" },
+          { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.38 0.16 268)" },
+          { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.38 0.16 268)" },
+          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.78 0.13 40)" },
+          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.665 0.215 36)" },
         ]} />
         <div className="border-t border-border pt-4">
           <EvidenceTitle label="CVR · LAST 14 DAYS" headline="4.2% → 2.3% — uniform across segments." />
@@ -1154,7 +1154,7 @@ function ConfidenceRow({ label, filled }: { label: string; filled: number }) {
               key={i}
               className="h-2.5 w-2.5 rounded-[3px]"
               style={{
-                background: i < filled ? "oklch(0.52 0.19 28)" : "oklch(0.9 0.018 55)",
+                background: i < filled ? "oklch(0.665 0.215 36)" : "oklch(0.9 0.022 80)",
               }}
             />
           ))}
@@ -1191,8 +1191,8 @@ function Chips({ chips }: { chips: string[] }) {
 }
 
 function MetricTile({ label, value, vs, tone }: { label: string; value: string; vs: string; tone: "ok" | "warn" }) {
-  const bg = tone === "warn" ? "oklch(0.96 0.05 70)" : "oklch(0.96 0.05 55)";
-  const border = tone === "warn" ? "oklch(0.85 0.06 70)" : "oklch(0.85 0.08 55)";
+  const bg = tone === "warn" ? "oklch(0.94 0.05 45)" : "oklch(0.94 0.05 45)";
+  const border = tone === "warn" ? "oklch(0.9 0.022 80)" : "oklch(0.9 0.022 80)";
   return (
     <div className="cursor-pointer rounded-xl border p-4 transition-colors hover:border-primary/40" style={{ background: bg, borderColor: border }}>
       <div className="text-[10.5px] font-semibold tracking-[0.14em] text-muted-foreground">{label}</div>
@@ -1249,7 +1249,7 @@ function EvidenceTitle({ label, headline }: { label: string; headline: string })
 
 function SparkChart({ kind }: { kind: "pacing" | "cpl-up" | "cvr-down" }) {
   const stroke =
-    kind === "cvr-down" ? "oklch(0.48 0.16 245)" : kind === "pacing" ? "oklch(0.48 0.16 245)" : "oklch(0.62 0.2 38)";
+    kind === "cvr-down" ? "oklch(0.38 0.16 268)" : kind === "pacing" ? "oklch(0.38 0.16 268)" : "oklch(0.665 0.215 36)";
   const fill =
     kind === "cvr-down" ? "oklch(0.48 0.16 245 / 0.12)" : kind === "pacing" ? "oklch(0.48 0.16 245 / 0.12)" : "oklch(0.62 0.2 38 / 0.12)";
   const path =

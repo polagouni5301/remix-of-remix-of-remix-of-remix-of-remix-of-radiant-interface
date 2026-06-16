@@ -75,7 +75,7 @@ function ObservationSchedulePage() {
           className="relative mt-6 overflow-hidden rounded-3xl border border-border p-8 md:p-10"
           style={{
             background:
-              "linear-gradient(135deg, oklch(0.97 0.04 55) 0%, oklch(0.95 0.07 35) 60%, oklch(0.94 0.09 30) 100%)",
+              "linear-gradient(135deg, oklch(0.946 0.016 82) 0%, oklch(0.94 0.05 45) 60%, oklch(0.94 0.05 45) 100%)",
           }}
         >
           <div

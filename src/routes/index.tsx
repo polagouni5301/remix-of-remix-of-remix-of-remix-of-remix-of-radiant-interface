@@ -133,7 +133,7 @@ function Home() {
                 >
                   <path
                     d="M2 6 Q 50 1 100 4 T 198 4"
-                    stroke="oklch(0.62 0.2 38)"
+                    stroke="oklch(0.665 0.215 36)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     fill="none"
@@ -153,7 +153,7 @@ function Home() {
           className="relative mt-8 overflow-hidden rounded-3xl border border-border p-6 md:p-8"
           style={{
             background:
-              "linear-gradient(120deg, oklch(0.97 0.04 55) 0%, oklch(0.95 0.07 35) 100%)",
+              "linear-gradient(120deg, oklch(0.946 0.016 82) 0%, oklch(0.94 0.05 45) 100%)",
           }}
         >
           <div

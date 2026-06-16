@@ -98,7 +98,7 @@ export function DecisionCapture({
               className="h-1 w-full"
               style={{
                 background:
-                  "linear-gradient(90deg, oklch(0.52 0.19 28), oklch(0.68 0.2 55))",
+                  "linear-gradient(90deg, oklch(0.665 0.215 36), oklch(0.78 0.13 40))",
               }}
             />
             <div className="p-7">

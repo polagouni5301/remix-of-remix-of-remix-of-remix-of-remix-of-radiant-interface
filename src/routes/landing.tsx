@@ -37,7 +37,7 @@ export const Route = createFileRoute("/landing")({
 });
 
 const heroBackdrop =
-  "radial-gradient(120% 90% at 75% 0%, oklch(0.97 0.05 58) 0%, oklch(0.988 0.006 60) 50%, oklch(0.985 0.008 60) 100%)";
+  "radial-gradient(120% 90% at 75% 0%, oklch(0.946 0.016 82) 0%, oklch(0.946 0.016 82) 50%, oklch(0.946 0.016 82) 100%)";
 
 const fade: Variants = {
   hidden: { opacity: 0, y: 22 },
@@ -467,7 +467,7 @@ function LandingPage() {
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.06]"
           style={{
-            backgroundImage: "radial-gradient(oklch(0.25 0.05 30) 1px, transparent 1px)",
+            backgroundImage: "radial-gradient(oklch(0.235 0.18 268) 1px, transparent 1px)",
             backgroundSize: "22px 22px",
           }}
         />
@@ -875,7 +875,7 @@ function LandingPage() {
             className="relative overflow-hidden rounded-[2.5rem] border border-primary/25 p-7 text-center sm:p-12 lg:p-16"
             style={{
               background:
-                "radial-gradient(120% 100% at 50% 0%, oklch(0.62 0.2 38) 0%, oklch(0.42 0.18 25) 70%, oklch(0.3 0.14 22) 100%)",
+                "radial-gradient(120% 100% at 50% 0%, oklch(0.665 0.215 36) 0%, oklch(0.42 0.18 25) 70%, oklch(0.3 0.14 22) 100%)",
             }}
           >
             <div

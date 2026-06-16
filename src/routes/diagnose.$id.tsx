@@ -73,13 +73,13 @@ function Diagnosing() {
           >
             <defs>
               <radialGradient id="scoutGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="oklch(0.72 0.18 45)" stopOpacity="0.35" />
-                <stop offset="70%" stopColor="oklch(0.72 0.18 45)" stopOpacity="0" />
+                <stop offset="0%" stopColor="oklch(0.78 0.13 40)" stopOpacity="0.35" />
+                <stop offset="70%" stopColor="oklch(0.78 0.13 40)" stopOpacity="0" />
               </radialGradient>
               <linearGradient id="scoutArc" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="oklch(0.52 0.19 28)" stopOpacity="0" />
-                <stop offset="60%" stopColor="oklch(0.62 0.2 38)" stopOpacity="1" />
-                <stop offset="100%" stopColor="oklch(0.78 0.18 55)" stopOpacity="1" />
+                <stop offset="0%" stopColor="oklch(0.665 0.215 36)" stopOpacity="0" />
+                <stop offset="60%" stopColor="oklch(0.665 0.215 36)" stopOpacity="1" />
+                <stop offset="100%" stopColor="oklch(0.78 0.13 40)" stopOpacity="1" />
               </linearGradient>
             </defs>
             <circle cx="140" cy="140" r="135" fill="url(#scoutGlow)" />
@@ -99,7 +99,7 @@ function Diagnosing() {
                 strokeWidth="2.5"
                 strokeLinecap="round"
               />
-              <circle cx="258" cy="140" r="4" fill="oklch(0.78 0.18 55)" />
+              <circle cx="258" cy="140" r="4" fill="oklch(0.78 0.13 40)" />
             </motion.g>
             {/* Rotating arc - inner reverse */}
             <motion.g
@@ -114,7 +114,7 @@ function Diagnosing() {
                 strokeWidth="1.5"
                 strokeDasharray="4 4"
               />
-              <circle cx="42" cy="140" r="3" fill="oklch(0.62 0.2 38)" />
+              <circle cx="42" cy="140" r="3" fill="oklch(0.665 0.215 36)" />
             </motion.g>
             {/* Pulsing scan ring */}
             <motion.circle
@@ -122,7 +122,7 @@ function Diagnosing() {
               cy="140"
               r="80"
               fill="none"
-              stroke="oklch(0.78 0.18 55)"
+              stroke="oklch(0.78 0.13 40)"
               strokeWidth="1.5"
               animate={{ r: [80, 130, 80], opacity: [0.55, 0, 0.55] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: "easeOut" }}
