@@ -217,7 +217,7 @@ function HeroVisual() {
 function ArchitectureVisual() {
   return (
     <div className="relative">
-      <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_20%,oklch(0.72_0.16_45/0.15),transparent_42%),radial-gradient(circle_at_85%_35%,oklch(0.54_0.18_28/0.1),transparent_30%)] blur-3xl" />
+      <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_20%,oklch(0.78_0.13_40/0.15),transparent_42%),radial-gradient(circle_at_85%_35%,oklch(0.665_0.215_36/0.1),transparent_30%)] blur-3xl" />
       <div className="relative overflow-hidden rounded-[1.8rem] border border-border bg-[linear-gradient(180deg,oklch(0.99_0.004_60)_0%,oklch(0.96_0.01_55)_100%)] p-4 shadow-[0_24px_60px_-36px_oklch(0.235_0.18_268/0.4)]">
         <div className="flex items-center justify-between">
           <div>
@@ -277,7 +277,7 @@ function ArchitectureVisual() {
           ))}
         </div>
 
-        <div className="mt-4 rounded-2xl border border-border bg-[linear-gradient(180deg,oklch(0.985_0.01_58)_0%,oklch(0.95_0.02_55)_100%)] p-3.5">
+        <div className="mt-4 rounded-2xl border border-border bg-[linear-gradient(180deg,oklch(0.946_0.016_82)_0%,oklch(0.946_0.016_82)_100%)] p-3.5">
           <div className="flex items-center justify-between">
             <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
               Core stack
@@ -472,7 +472,7 @@ function LandingPage() {
           }}
         />
         <div className="pointer-events-none absolute -left-20 top-12 h-80 w-80 rounded-full bg-primary/12 blur-3xl" />
-        <div className="pointer-events-none absolute right-0 top-8 h-96 w-96 rounded-full bg-[oklch(0.7_0.16_52/0.14)] blur-3xl" />
+        <div className="pointer-events-none absolute right-0 top-8 h-96 w-96 rounded-full bg-[oklch(0.78_0.13_40/0.14)] blur-3xl" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-background/35" />
 
         <Shell className="grid grid-cols-1 items-start gap-10 pt-10 pb-14 sm:pt-12 sm:pb-16 lg:grid-cols-[0.96fr_1.04fr] lg:gap-12 lg:pt-14 lg:pb-20 xl:max-w-[1360px]">
@@ -530,8 +530,8 @@ function LandingPage() {
 
      
 
-      <section className="relative overflow-hidden border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.995_0.008_60)_0%,oklch(0.985_0.01_58)_100%)] pt-4 pb-8 sm:pb-10">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,oklch(0.7_0.16_52/0.08),transparent_36%),radial-gradient(circle_at_10%_0%,oklch(0.78_0.16_42/0.06),transparent_32%)]" />
+      <section className="relative overflow-hidden border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.985_0.008_82)_0%,oklch(0.946_0.016_82)_100%)] pt-4 pb-8 sm:pb-10">
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,oklch(0.78_0.13_40/0.08),transparent_36%),radial-gradient(circle_at_10%_0%,oklch(0.78_0.13_40/0.06),transparent_32%)]" />
         <Shell>
           <div className="relative">
             <SectionLabel n="01" label="The problem" />
@@ -642,7 +642,7 @@ function LandingPage() {
           className="pointer-events-none absolute inset-0 opacity-25"
           style={{
             background:
-              "radial-gradient(60% 50% at 90% 20%, oklch(0.55 0.2 35 / 0.4), transparent)",
+              "radial-gradient(60% 50% at 90% 20%, oklch(0.665 0.215 36 / 0.4), transparent)",
           }}
         />
         <Shell className="relative text-white">
@@ -672,7 +672,7 @@ function LandingPage() {
                   <span className="font-mono text-[11px] tracking-[0.24em] text-[oklch(0.78_0.13_40)]">
                     {step.n}
                   </span>
-                  <step.icon className="h-4 w-4 text-white/60 transition group-hover:text-[oklch(0.85_0.18_55)]" />
+                  <step.icon className="h-4 w-4 text-white/60 transition group-hover:text-[oklch(0.78_0.13_40)]" />
                 </div>
                 <div className="mt-7 font-display text-[18px] font-semibold tracking-tight">
                   {step.title}
@@ -689,7 +689,7 @@ function LandingPage() {
 
       <section
         id="capabilities"
-        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.99_0.006_58)_0%,oklch(0.98_0.012_55)_100%)] py-12"
+        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.985_0.008_82)_0%,oklch(0.946_0.016_82)_100%)] py-12"
       >
         <Shell>
           <SectionLabel n="03" label="Capabilities" />
@@ -733,7 +733,7 @@ function LandingPage() {
 
       <section
         id="architecture"
-        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.985_0.01_58)_0%,oklch(0.97_0.012_60)_100%)] py-12"
+        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.946_0.016_82)_0%,oklch(0.946_0.016_82)_100%)] py-12"
       >
         <Shell>
           <SectionLabel n="04" label="Architecture" />
@@ -777,7 +777,7 @@ function LandingPage() {
         </Shell>
       </section>
 
-      <section className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.99_0.006_58)_0%,oklch(0.982_0.01_55)_100%)] py-12">
+      <section className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.985_0.008_82)_0%,oklch(0.946_0.016_82)_100%)] py-12">
         <Shell>
           <SectionLabel n="05" label="Outcomes" />
           <SectionHeading
@@ -817,7 +817,7 @@ function LandingPage() {
 
       <section
         id="trust"
-        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.985_0.01_58)_0%,oklch(0.972_0.012_60)_100%)] py-12"
+        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.946_0.016_82)_0%,oklch(0.946_0.016_82)_100%)] py-12"
       >
         <Shell>
           <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
