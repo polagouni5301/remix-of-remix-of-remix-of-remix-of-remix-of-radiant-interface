@@ -75,7 +75,7 @@ function ObservationSchedulePage() {
           className="relative mt-6 overflow-hidden rounded-3xl border border-border p-8 md:p-10"
           style={{
             background:
-              "linear-gradient(135deg, oklch(0.97 0.04 55) 0%, oklch(0.95 0.07 35) 60%, oklch(0.94 0.09 30) 100%)",
+              "linear-gradient(135deg, oklch(0.946 0.016 82) 0%, oklch(0.94 0.05 45) 60%, oklch(0.94 0.05 45) 100%)",
           }}
         >
           <div
@@ -83,7 +83,7 @@ function ObservationSchedulePage() {
             className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full opacity-40"
             style={{
               background:
-                "radial-gradient(closest-side, oklch(0.62 0.2 35 / 0.55), transparent)",
+                "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.55), transparent)",
             }}
           />
           <div className="relative flex items-start gap-6">
@@ -91,7 +91,7 @@ function ObservationSchedulePage() {
                     <ScoutMark size={100} />
                   </div>
             <div className="min-w-0 flex-1">
-              <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-[oklch(0.47_0.16_258)]">
+              <p className="text-[11.5px] font-semibold uppercase tracking-[0.26em] text-[oklch(0.38_0.16_268)]">
                 Observation schedule
               </p>
               <h1 className="mt-3 font-display text-[clamp(28px,4vw,48px)] font-semibold leading-[1.02] tracking-tight text-foreground">
@@ -126,8 +126,8 @@ function ObservationSchedulePage() {
                   className="cursor-pointer rounded-xl border border-border bg-background p-5 transition-colors hover:border-primary/40"
                 >
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6">
-                    <div className="inline-flex min-w-0 shrink-0 items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-[oklch(0.47_0.16_258)] sm:w-[110px]">
-                      <span className="h-2 w-2 rounded-full bg-[oklch(0.52_0.2_258)]" />
+                    <div className="inline-flex min-w-0 shrink-0 items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-[oklch(0.38_0.16_268)] sm:w-[110px]">
+                      <span className="h-2 w-2 rounded-full bg-[oklch(0.235_0.18_268)]" />
                       {item.offset}
                     </div>
                     <p className="text-[15px] leading-[1.55] text-foreground">
