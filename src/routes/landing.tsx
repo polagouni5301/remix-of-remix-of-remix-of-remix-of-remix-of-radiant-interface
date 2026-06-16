@@ -37,7 +37,7 @@ export const Route = createFileRoute("/landing")({
 });
 
 const heroBackdrop =
-  "radial-gradient(120% 90% at 75% 0%, oklch(0.946 0.016 82) 0%, oklch(0.946 0.016 82) 50%, oklch(0.946 0.016 82) 100%)";
+  "radial-gradient(120% 90% at 75% 0%, oklch(1 0 0) 0%, oklch(1 0 0) 50%, oklch(1 0 0) 100%)";
 
 const fade: Variants = {
   hidden: { opacity: 0, y: 22 },
