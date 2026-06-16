@@ -337,7 +337,7 @@ function Detail() {
                 className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full opacity-40"
                 style={{
                   background:
-                    "radial-gradient(closest-side, oklch(0.62 0.2 35 / 0.55), transparent)",
+                    "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.55), transparent)",
                 }}
               />
               <div className="relative grid grid-cols-1 gap-8 p-8 md:p-10 lg:grid-cols-[1fr_320px]">
@@ -576,7 +576,7 @@ function ActionPanel({
   if (diag.kind === "investigate") {
     return (
       <div>
-        <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.55_0.18_28)]">
+        <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.665_0.215_36)]">
           INVESTIGATE · NO DIRECT LEVER
         </div>
         <h3 className="mt-1 font-display text-[22px] font-semibold tracking-tight">
@@ -635,7 +635,7 @@ function ActionPanel({
           max={90}
           value={budget}
           onChange={(e) => setBudget(Number(e.target.value))}
-          className="mt-1 w-full accent-[oklch(0.52_0.19_28)]"
+          className="mt-1 w-full accent-[oklch(0.665_0.215_36)]"
         />
         <div className="mt-3 flex items-end justify-between">
           <span className="text-[12px] text-muted-foreground">
@@ -643,7 +643,7 @@ function ActionPanel({
           </span>
           <span className="font-display text-[28px] font-semibold text-foreground">
             ${budget}
-            <span className="ml-2 rounded-md bg-[oklch(0.94_0.06_155)] px-2 py-0.5 text-[12px] font-medium text-[oklch(0.4_0.12_155)]">
+            <span className="ml-2 rounded-md bg-[oklch(0.92_0.04_268)] px-2 py-0.5 text-[12px] font-medium text-[oklch(0.235_0.18_268)]">
               {budget === 75 ? "0%" : `${budget > 75 ? "+" : ""}${Math.round(((budget - 75) / 75) * 100)}%`}
             </span>
           </span>
@@ -685,7 +685,7 @@ function ActionPanel({
           {["-\"how to\"", "-\"cost\"", "-\"prices\""].map((t) => (
             <span
               key={t}
-              className="rounded-md border border-[oklch(0.85_0.08_55)] bg-[oklch(0.97_0.05_60)] px-3 py-1.5 font-mono text-[13px] text-[oklch(0.5_0.16_45)]"
+              className="rounded-md border border-[oklch(0.9_0.022_80)] bg-[oklch(0.946_0.016_82)] px-3 py-1.5 font-mono text-[13px] text-[oklch(0.665_0.215_36)]"
             >
               {t}
             </span>
@@ -762,20 +762,20 @@ function AppliedScreen({
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="mt-10 grid place-items-center"
     >
-      <div className="relative w-full max-w-[760px] overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-[0_30px_60px_-30px_oklch(0.52_0.19_28/0.18)]">
+      <div className="relative w-full max-w-[760px] overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-[0_30px_60px_-30px_oklch(0.665_0.215_36/0.18)]">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 -top-10 h-[260px] w-[260px] opacity-50"
           style={{
             background:
-              "radial-gradient(closest-side, oklch(0.72 0.2 55 / 0.4), transparent)",
+              "radial-gradient(closest-side, oklch(0.78 0.13 40 / 0.4), transparent)",
           }}
         />
         <div
           className={`grid h-14 w-14 place-items-center rounded-full ${
             isInvestigated
-              ? "bg-[oklch(0.94_0.04_240)] text-[oklch(0.45_0.18_245)]"
-              : "bg-[oklch(0.94_0.08_155)] text-[oklch(0.4_0.13_155)]"
+              ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.38_0.16_268)]"
+              : "bg-[oklch(0.94_0.05_45)] text-[oklch(0.235_0.18_268)]"
           }`}
         >
           {isInvestigated ? <Search className="h-6 w-6" /> : <Check className="h-7 w-7" strokeWidth={3} />}
@@ -1048,7 +1048,7 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
           <PublisherBars data={[
             { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.665 0.215 36)" },
             { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.38 0.16 268)" },
-            { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.7 0.02 260)" },
+            { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.38 0.16 268)" },
           ]} />
         </div>
       </div>
@@ -1181,7 +1181,7 @@ function Chips({ chips }: { chips: string[] }) {
         <span
           key={c}
           className="rounded-md px-2.5 py-1 text-[12px] font-medium text-primary"
-          style={{ background: "oklch(0.52 0.19 28 / 0.1)" }}
+          style={{ background: "oklch(0.665 0.215 36 / 0.1)" }}
         >
           {c}
         </span>
@@ -1251,7 +1251,7 @@ function SparkChart({ kind }: { kind: "pacing" | "cpl-up" | "cvr-down" }) {
   const stroke =
     kind === "cvr-down" ? "oklch(0.38 0.16 268)" : kind === "pacing" ? "oklch(0.38 0.16 268)" : "oklch(0.665 0.215 36)";
   const fill =
-    kind === "cvr-down" ? "oklch(0.48 0.16 245 / 0.12)" : kind === "pacing" ? "oklch(0.48 0.16 245 / 0.12)" : "oklch(0.62 0.2 38 / 0.12)";
+    kind === "cvr-down" ? "oklch(0.38 0.16 268 / 0.12)" : kind === "pacing" ? "oklch(0.38 0.16 268 / 0.12)" : "oklch(0.665 0.215 36 / 0.12)";
   const path =
     kind === "pacing"
       ? "M 0 90 L 60 70 L 120 50 L 180 35 L 240 25 L 300 18"
@@ -1261,7 +1261,7 @@ function SparkChart({ kind }: { kind: "pacing" | "cpl-up" | "cvr-down" }) {
   return (
     <div className="mt-3 rounded-xl border border-border bg-background p-4">
       <svg viewBox="0 0 300 110" className="w-full">
-        <line x1="0" y1="50" x2="300" y2="50" stroke="oklch(0.85 0 0)" strokeDasharray="4 4" />
+        <line x1="0" y1="50" x2="300" y2="50" stroke="oklch(0.9 0.022 80)" strokeDasharray="4 4" />
         <path d={`${path} L 300 110 L 0 110 Z`} fill={fill} />
         <path d={path} fill="none" stroke={stroke} strokeWidth="2.5" strokeLinecap="round" />
         <circle cx="300" cy={kind === "cvr-down" ? 88 : kind === "cpl-up" ? 28 : 18} r="3.5" fill={stroke} />
@@ -1327,7 +1327,7 @@ function KeywordTable() {
         <div
           key={r.kw}
           className={`grid cursor-pointer grid-cols-[1.6fr_auto_auto_auto_auto] gap-x-3 border-b border-border py-2.5 text-[13px] transition-colors hover:bg-muted last:border-b-0 ${
-            r.bad ? "bg-[oklch(0.97_0.04_55)]" : ""
+            r.bad ? "bg-[oklch(0.946_0.016_82)]" : ""
           }`}
         >
           <span className={`truncate ${r.bad ? "text-primary" : "text-foreground"}`}>

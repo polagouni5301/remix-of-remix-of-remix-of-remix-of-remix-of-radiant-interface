@@ -103,16 +103,16 @@ function Home() {
           <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
             <div
               className="absolute -left-10 -top-10 h-[280px] w-[280px] rounded-full opacity-60 blur-3xl"
-              style={{ background: "radial-gradient(closest-side, oklch(0.92 0.1 55 / 0.55), transparent)" }}
+              style={{ background: "radial-gradient(closest-side, oklch(0.94 0.05 45 / 0.55), transparent)" }}
             />
             <div
               className="absolute right-0 top-6 h-[220px] w-[420px] rounded-full opacity-40 blur-3xl"
-              style={{ background: "radial-gradient(closest-side, oklch(0.78 0.16 42 / 0.4), transparent)" }}
+              style={{ background: "radial-gradient(closest-side, oklch(0.78 0.13 40 / 0.4), transparent)" }}
             />
             <svg className="absolute left-0 top-0 h-full w-full opacity-[0.07]" aria-hidden>
               <defs>
                 <pattern id="dotGrid" width="22" height="22" patternUnits="userSpaceOnUse">
-                  <circle cx="1" cy="1" r="1" fill="oklch(0.3 0.05 30)" />
+                  <circle cx="1" cy="1" r="1" fill="oklch(0.235 0.18 268)" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#dotGrid)" />
@@ -123,7 +123,7 @@ function Home() {
             <h1 className="font-display text-[clamp(40px,6vw,72px)] font-semibold leading-[0.98] tracking-tight">
               <span className="block text-muted-foreground/70">Good morning,</span>
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-primary via-[oklch(0.6_0.2_38)] to-[oklch(0.72_0.2_55)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary via-[oklch(0.665_0.215_36)] to-[oklch(0.78_0.13_40)] bg-clip-text text-transparent">
                   Jordan.
                 </span>
                 <svg
@@ -159,7 +159,7 @@ function Home() {
           <div
             aria-hidden
             className="pointer-events-none absolute -right-20 -top-24 h-[300px] w-[300px] rounded-full opacity-30"
-            style={{ background: "radial-gradient(closest-side, oklch(0.62 0.2 35 / 0.45), transparent)" }}
+            style={{ background: "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.45), transparent)" }}
           />
           <div className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
@@ -182,7 +182,7 @@ function Home() {
               />
               <button
                 onClick={handleSearch}
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_8px_24px_-12px_oklch(0.52_0.19_28/0.7)] hover:opacity-95"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_8px_24px_-12px_oklch(0.665_0.215_36/0.7)] hover:opacity-95"
               >
                 <Sparkles className="h-3.5 w-3.5" /> Diagnose
               </button>
@@ -248,9 +248,9 @@ function Home() {
                   const tone = toneOf(c);
                   const toneClasses =
                     tone === "warning"
-                      ? "bg-[oklch(0.97_0.05_60)] text-[oklch(0.5_0.16_45)] border-[oklch(0.85_0.1_55)]"
+                      ? "bg-[oklch(0.946_0.016_82)] text-[oklch(0.665_0.215_36)] border-[oklch(0.9_0.022_80)]"
                       : tone === "success"
-                        ? "bg-[oklch(0.96_0.05_155)] text-[oklch(0.4_0.12_155)] border-[oklch(0.85_0.08_155)]"
+                        ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.235_0.18_268)] border-[oklch(0.9_0.022_80)]"
                         : "bg-secondary text-muted-foreground border-border";
                   const Trend = tone === "warning" ? TrendingDown : tone === "success" ? TrendingUp : Activity;
                   return (
@@ -261,11 +261,11 @@ function Home() {
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.04 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_18px_44px_-22px_oklch(0.4_0.15_25/0.35)]"
+                      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_18px_44px_-22px_oklch(0.235_0.18_268/0.35)]"
                     >
                       <div
                         aria-hidden
-                        className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-primary to-[oklch(0.72_0.2_55)] transition-transform duration-500 group-hover:scale-x-100"
+                        className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-gradient-to-r from-primary to-[oklch(0.78_0.13_40)] transition-transform duration-500 group-hover:scale-x-100"
                       />
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -295,9 +295,9 @@ function Home() {
                             <span
                               className={`font-display text-[26px] font-semibold leading-none ${
                                 tone === "warning"
-                                  ? "text-[oklch(0.55_0.18_38)]"
+                                  ? "text-[oklch(0.665_0.215_36)]"
                                   : tone === "success"
-                                    ? "text-[oklch(0.5_0.13_155)]"
+                                    ? "text-[oklch(0.235_0.18_268)]"
                                     : "text-foreground"
                               }`}
                             >
@@ -359,9 +359,9 @@ function Home() {
                         <div
                           className={`mt-0.5 font-display text-[16px] font-semibold ${
                             tone === "warning"
-                              ? "text-[oklch(0.55_0.18_38)]"
+                              ? "text-[oklch(0.665_0.215_36)]"
                               : tone === "success"
-                                ? "text-[oklch(0.5_0.13_155)]"
+                                ? "text-[oklch(0.235_0.18_268)]"
                                 : "text-foreground"
                           }`}
                         >
@@ -436,7 +436,7 @@ function Home() {
                     <div className="mt-2 flex items-center gap-2">
                       <span
                         className={`text-[13px] font-semibold ${
-                          o.tone === "success" ? "text-[oklch(0.5_0.13_155)]" : "text-foreground"
+                          o.tone === "success" ? "text-[oklch(0.235_0.18_268)]" : "text-foreground"
                         }`}
                       >
                         {o.result}

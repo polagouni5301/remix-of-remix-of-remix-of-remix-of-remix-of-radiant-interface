@@ -91,7 +91,7 @@ export function DecisionCapture({
             exit={{ opacity: 0, y: 12, scale: 0.98 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-[560px] overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-30px_oklch(0.2_0.02_260/0.45)]"
+            className="relative w-full max-w-[560px] overflow-hidden rounded-3xl border border-border bg-card shadow-[0_30px_80px_-30px_oklch(0.235_0.18_268/0.45)]"
           >
             <div
               aria-hidden
@@ -152,11 +152,11 @@ export function DecisionCapture({
                             o.tone === "primary"
                               ? "bg-primary/10 text-primary"
                               : o.tone === "warm"
-                                ? "bg-[oklch(0.94_0.07_55)] text-[oklch(0.5_0.16_45)]"
+                                ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.665_0.215_36)]"
                                 : o.tone === "info"
-                                  ? "bg-[oklch(0.94_0.04_240)] text-[oklch(0.45_0.18_245)]"
+                                  ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.38_0.16_268)]"
                                   : o.tone === "danger"
-                                    ? "bg-[oklch(0.95_0.05_25)] text-[oklch(0.5_0.18_28)]"
+                                    ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.665_0.215_36)]"
                                     : "bg-secondary text-muted-foreground"
                           }`}
                         >

@@ -71,7 +71,7 @@ function LoginPage() {
             className="absolute inset-0"
             style={{
               background:
-                "linear-gradient(135deg, oklch(0.32 0.14 22 / 0.92) 0%, oklch(0.42 0.18 28 / 0.82) 55%, oklch(0.55 0.2 38 / 0.75) 100%)",
+                "linear-gradient(135deg, oklch(0.235 0.18 268 / 0.92) 0%, oklch(0.235 0.18 268 / 0.82) 55%, oklch(0.665 0.215 36 / 0.75) 100%)",
             }}
           />
           <div className="relative flex h-full flex-col justify-between p-10 text-white">
@@ -209,7 +209,7 @@ function LoginPage() {
                     <button
                       type="submit"
                       disabled={loading}
-                      className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-[14px] font-semibold text-primary-foreground shadow-[0_10px_24px_-12px_oklch(0.52_0.19_28/0.7)] transition hover:opacity-95 disabled:opacity-70"
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-[14px] font-semibold text-primary-foreground shadow-[0_10px_24px_-12px_oklch(0.665_0.215_36/0.7)] transition hover:opacity-95 disabled:opacity-70"
                     >
                       {loading ? (
                         <>

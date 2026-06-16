@@ -115,7 +115,7 @@ function SectionHeading({
 
 function StatCard({ value, label, detail }: { value: string; label: string; detail: string }) {
   return (
-    <div className="rounded-3xl border border-border bg-card p-6 shadow-[0_12px_30px_-24px_oklch(0.2_0.02_260/0.4)]">
+    <div className="rounded-3xl border border-border bg-card p-6 shadow-[0_12px_30px_-24px_oklch(0.235_0.18_268/0.4)]">
       <div className="font-display text-[clamp(2.2rem,5.2vw,4.1rem)] font-semibold leading-none tracking-tighter text-foreground">
         {value}
       </div>
@@ -128,13 +128,13 @@ function StatCard({ value, label, detail }: { value: string; label: string; deta
 function HeroVisual() {
   return (
     <div className="relative mx-auto w-full max-w-[740px] lg:max-w-[740px]">
-      <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_30%,oklch(0.68_0.18_38/0.16),transparent_46%),radial-gradient(circle_at_65%_25%,oklch(0.7_0.18_55/0.14),transparent_38%)] blur-3xl" />
-      <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,oklch(0.16_0.02_25)_0%,oklch(0.12_0.02_25)_100%)] shadow-[0_30px_70px_-28px_oklch(0.18_0.12_25/0.5)]">
+      <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_30%,oklch(0.78_0.13_40/0.16),transparent_46%),radial-gradient(circle_at_65%_25%,oklch(0.78_0.13_40/0.14),transparent_38%)] blur-3xl" />
+      <div className="relative overflow-hidden rounded-[1.8rem] border border-white/10 bg-[linear-gradient(180deg,oklch(0.235_0.18_268)_0%,oklch(0.18_0.14_268)_100%)] shadow-[0_30px_70px_-28px_oklch(0.235_0.18_268/0.5)]">
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-white/50">
            
           </span>
-          <span className="rounded-full border border-[oklch(0.82_0.12_50/0.22)] bg-[oklch(0.75_0.12_55/0.12)] px-2.5 py-0.5 text-[10px] font-semibold text-[oklch(0.92_0.1_60)]">
+          <span className="rounded-full border border-[oklch(0.78_0.13_40/0.22)] bg-[oklch(0.78_0.13_40/0.12)] px-2.5 py-0.5 text-[10px] font-semibold text-[oklch(0.94_0.05_45)]">
             94% confidence
           </span>
         </div>
@@ -174,10 +174,10 @@ function HeroVisual() {
                 {[30, 48, 36, 60].map((height, index) => (
                   <div
                     key={index}
-                    className="flex h-16 items-end rounded-xl bg-[linear-gradient(180deg,oklch(0.18_0.03_25),oklch(0.1_0.02_25))] p-1.5"
+                    className="flex h-16 items-end rounded-xl bg-[linear-gradient(180deg,oklch(0.235_0.18_268),oklch(0.18_0.14_268))] p-1.5"
                   >
                     <div
-                      className="w-full rounded-t-full bg-[linear-gradient(180deg,oklch(0.86_0.16_50),oklch(0.55_0.19_28))]"
+                      className="w-full rounded-t-full bg-[linear-gradient(180deg,oklch(0.78_0.13_40),oklch(0.55_0.19_28))]"
                       style={{ height: `${height}%` }}
                     />
                   </div>
@@ -218,7 +218,7 @@ function ArchitectureVisual() {
   return (
     <div className="relative">
       <div className="absolute -inset-4 rounded-[2rem] bg-[radial-gradient(circle_at_50%_20%,oklch(0.72_0.16_45/0.15),transparent_42%),radial-gradient(circle_at_85%_35%,oklch(0.54_0.18_28/0.1),transparent_30%)] blur-3xl" />
-      <div className="relative overflow-hidden rounded-[1.8rem] border border-border bg-[linear-gradient(180deg,oklch(0.99_0.004_60)_0%,oklch(0.96_0.01_55)_100%)] p-4 shadow-[0_24px_60px_-36px_oklch(0.2_0.02_260/0.4)]">
+      <div className="relative overflow-hidden rounded-[1.8rem] border border-border bg-[linear-gradient(180deg,oklch(0.99_0.004_60)_0%,oklch(0.96_0.01_55)_100%)] p-4 shadow-[0_24px_60px_-36px_oklch(0.235_0.18_268/0.4)]">
         <div className="flex items-center justify-between">
           <div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -450,7 +450,7 @@ function LandingPage() {
               </Link>
               <Link
                 to="/"
-                className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_10px_24px_-12px_oklch(0.52_0.19_28/0.7)] transition hover:opacity-95"
+                className="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground shadow-[0_10px_24px_-12px_oklch(0.665_0.215_36/0.7)] transition hover:opacity-95"
               >
                 Start diagnosis <ArrowRight className="h-3.5 w-3.5" />
               </Link>
@@ -598,9 +598,9 @@ function LandingPage() {
                     whileInView="show"
                     viewport={{ once: true, margin: "-80px" }}
                     className={[
-                      "rounded-[1.25rem] border p-4 shadow-[0_14px_35px_-30px_oklch(0.2_0.02_260/0.35)]",
+                      "rounded-[1.25rem] border p-4 shadow-[0_14px_35px_-30px_oklch(0.235_0.18_268/0.35)]",
                       item.tone === "warm"
-                        ? "border-[oklch(0.89_0.07_55/0.55)] bg-[linear-gradient(180deg,oklch(0.97_0.05_58)_0%,oklch(0.96_0.04_60)_100%)]"
+                        ? "border-[oklch(0.9_0.022_80/0.55)] bg-[linear-gradient(180deg,oklch(0.946_0.016_82)_0%,oklch(0.946_0.016_82)_100%)]"
                         : "border-border bg-card/80",
                       index < 2
                         ? "min-h-[148px] md:min-h-[154px]"
@@ -635,7 +635,7 @@ function LandingPage() {
         id="pipeline"
         className="relative overflow-hidden border-b border-border/70 px-0 py-20 sm:py-24 lg:py-28"
         style={{
-          background: "linear-gradient(180deg, oklch(0.18 0.04 25) 0%, oklch(0.11 0.03 22) 100%)",
+          background: "linear-gradient(180deg, oklch(0.235 0.18 268) 0%, oklch(0.18 0.14 268) 100%)",
         }}
       >
         <div
@@ -666,10 +666,10 @@ function LandingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.55, delay: index * 0.07 }}
-                className="group relative rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition hover:border-[oklch(0.78_0.18_55/0.45)] hover:bg-white/[0.06]"
+                className="group relative rounded-[1.6rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm transition hover:border-[oklch(0.78_0.13_40/0.45)] hover:bg-white/[0.06]"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] tracking-[0.24em] text-[oklch(0.8_0.18_55)]">
+                  <span className="font-mono text-[11px] tracking-[0.24em] text-[oklch(0.78_0.13_40)]">
                     {step.n}
                   </span>
                   <step.icon className="h-4 w-4 text-white/60 transition group-hover:text-[oklch(0.85_0.18_55)]" />
@@ -679,7 +679,7 @@ function LandingPage() {
                 </div>
                 <p className="mt-3 text-[12px] leading-relaxed text-white/58">{step.detail}</p>
                 {index < pipeline.length - 1 ? (
-                  <div className="pointer-events-none absolute -right-3 top-1/2 hidden h-px w-6 -translate-y-1/2 bg-gradient-to-r from-[oklch(0.78_0.18_55)] to-transparent md:block" />
+                  <div className="pointer-events-none absolute -right-3 top-1/2 hidden h-px w-6 -translate-y-1/2 bg-gradient-to-r from-[oklch(0.78_0.13_40)] to-transparent md:block" />
                 ) : null}
               </motion.div>
             ))}
@@ -703,7 +703,7 @@ function LandingPage() {
               }
               description="Scout keeps the workflow concise: gather the evidence, preserve the context, and hand over a draft that is easy to approve."
             />
-            <div className="overflow-hidden rounded-2xl border border-border bg-background/80 shadow-[0_18px_46px_-36px_oklch(0.2_0.02_260/0.45)]">
+            <div className="overflow-hidden rounded-2xl border border-border bg-background/80 shadow-[0_18px_46px_-36px_oklch(0.235_0.18_268/0.45)]">
               {capabilities.map((item, index) => (
                 <motion.div
                   key={item.title}
@@ -835,7 +835,7 @@ function LandingPage() {
               />
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-border bg-background/85 shadow-[0_18px_46px_-36px_oklch(0.2_0.02_260/0.45)]">
+            <div className="overflow-hidden rounded-2xl border border-border bg-background/85 shadow-[0_18px_46px_-36px_oklch(0.235_0.18_268/0.45)]">
               {trust.map((item, index) => (
                 <motion.div
                   key={item.title}

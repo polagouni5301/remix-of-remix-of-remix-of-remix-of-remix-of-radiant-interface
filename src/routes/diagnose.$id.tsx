@@ -84,8 +84,8 @@ function Diagnosing() {
             </defs>
             <circle cx="140" cy="140" r="135" fill="url(#scoutGlow)" />
             {/* Static thin rings */}
-            <circle cx="140" cy="140" r="118" fill="none" stroke="oklch(0.55 0.12 35 / 0.18)" strokeWidth="1" strokeDasharray="2 6" />
-            <circle cx="140" cy="140" r="98" fill="none" stroke="oklch(0.55 0.12 35 / 0.12)" strokeWidth="1" />
+            <circle cx="140" cy="140" r="118" fill="none" stroke="oklch(0.665 0.215 36 / 0.18)" strokeWidth="1" strokeDasharray="2 6" />
+            <circle cx="140" cy="140" r="98" fill="none" stroke="oklch(0.665 0.215 36 / 0.12)" strokeWidth="1" />
             {/* Rotating arc - outer */}
             <motion.g
               animate={{ rotate: 360 }}
@@ -110,7 +110,7 @@ function Diagnosing() {
               <path
                 d="M 140 42 A 98 98 0 0 0 42 140"
                 fill="none"
-                stroke="oklch(0.62 0.2 38 / 0.55)"
+                stroke="oklch(0.665 0.215 36 / 0.55)"
                 strokeWidth="1.5"
                 strokeDasharray="4 4"
               />
