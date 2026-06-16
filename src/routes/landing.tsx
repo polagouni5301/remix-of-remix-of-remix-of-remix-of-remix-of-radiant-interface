@@ -260,7 +260,7 @@ function ArchitectureVisual() {
           ].map((item, index) => (
             <div
               key={item.step}
-              className="flex items-start gap-3 rounded-2xl border border-border bg-white p-3.5"
+              className="flex items-start gap-3 rounded-2xl border border-border bg-card p-3.5"
             >
               <div className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
                 <span className="font-mono text-[10px] font-semibold">0{index + 1}</span>
@@ -288,7 +288,7 @@ function ArchitectureVisual() {
             {["BigQuery", "Vertex AI", "Cloud Run", "Memorystore"].map((item) => (
               <div
                 key={item}
-                className="rounded-xl border border-border bg-white px-2.5 py-2 font-semibold"
+                className="rounded-xl border border-border bg-card px-2.5 py-2 font-semibold"
               >
                 {item}
               </div>
