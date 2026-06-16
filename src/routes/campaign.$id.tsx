@@ -329,7 +329,7 @@ function Detail() {
               className="relative mt-6 overflow-hidden rounded-3xl border border-border"
               style={{
                 background:
-                  "linear-gradient(135deg, oklch(0.946 0.016 82) 0%, oklch(0.94 0.05 45) 60%, oklch(0.94 0.05 45) 100%)",
+                  "linear-gradient(135deg, oklch(1 0 0) 0%, oklch(0.94 0.05 45) 60%, oklch(0.94 0.05 45) 100%)",
               }}
             >
               <div
@@ -855,7 +855,7 @@ function AppliedScreen({
               className="mt-5 flex items-start gap-3 rounded-2xl px-5 py-4"
               style={{
                 background:
-                  "linear-gradient(120deg, oklch(0.92 0.04 268) 0%, oklch(0.946 0.016 82) 100%)",
+                  "linear-gradient(120deg, oklch(0.92 0.04 268) 0%, oklch(1 0 0) 100%)",
               }}
             >
               <Timer className="mt-0.5 h-5 w-5 text-primary" />

@@ -153,7 +153,7 @@ function Home() {
           className="relative mt-8 overflow-hidden rounded-3xl border border-border p-6 md:p-8"
           style={{
             background:
-              "linear-gradient(120deg, oklch(0.946 0.016 82) 0%, oklch(0.94 0.05 45) 100%)",
+              "linear-gradient(120deg, oklch(1 0 0) 0%, oklch(0.94 0.05 45) 100%)",
           }}
         >
           <div
