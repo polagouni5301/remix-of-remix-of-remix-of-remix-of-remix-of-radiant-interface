@@ -19,9 +19,8 @@ import {
   Zap,
   LineChart,
 } from "lucide-react";
-import heroArt from "../assets/scout-diagnosis-hero.png";
-import pipelineArt from "../assets/scout-pipeline-visual.png";
-import ctaTexture from "../assets/scout-cta-texture.png";
+const HERO_IMG =
+  "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80";
 
 export const Route = createFileRoute("/landing")({
   head: () => ({
@@ -128,7 +127,7 @@ function LandingPage() {
           }}
         />
 
-        <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-8 pb-24 pt-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pb-32 lg:pt-28">
+        <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-12 px-8 pb-24 pt-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:pb-32 lg:pt-28">
           <motion.div
             style={{ y: heroTextY }}
             initial="hidden"
@@ -235,11 +234,12 @@ function LandingPage() {
                 </span>
               </div>
               <img
-                src={heroArt}
+                src={HERO_IMG}
                 width={1600}
-                height={1200}
+                height={1100}
                 alt="Scout agent diagnosing a paid search campaign in real time"
-                className="block h-auto w-full"
+                loading="eager"
+                className="block aspect-[4/3] h-auto w-full object-cover opacity-90"
               />
               <div className="absolute bottom-5 left-5 right-5 rounded-xl border border-white/15 bg-[oklch(0.16_0.02_25/0.7)] p-4 backdrop-blur-md">
                 <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-white/60">
@@ -281,13 +281,13 @@ function LandingPage() {
       <section className="relative px-8 py-28">
         <div className="mx-auto max-w-[1280px]">
           <SectionNumber n="01" label="The problem" />
-          <div className="mt-6 grid grid-cols-1 gap-16 lg:grid-cols-[1.1fr_1fr] lg:items-end">
+          <div className="mt-6 grid grid-cols-1 gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-start">
             <motion.h2
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-80px" }}
               variants={fade}
-              className="font-display text-[44px] font-semibold leading-[1.05] tracking-tight md:text-[60px]"
+              className="font-display text-[40px] font-semibold leading-[1.05] tracking-tight md:text-[56px]"
             >
               Your best analysts are
               <br />
@@ -295,18 +295,26 @@ function LandingPage() {
               <br />
               copy-pasting into spreadsheets.
             </motion.h2>
-            <motion.p
+            <motion.div
               initial="hidden"
               whileInView="show"
               viewport={{ once: true }}
               variants={fade}
-              className="text-[16px] leading-relaxed text-muted-foreground"
+              className="lg:pt-4"
             >
-              Paid search investigation is the part of the job that doesn't scale.
-              Six tabs of context, four exports, two stale dashboards, and a Slack
-              thread that nobody can find next quarter. The decision takes ten
-              seconds. The lead-up takes forty minutes — every single time.
-            </motion.p>
+              <p className="text-[16px] leading-relaxed text-muted-foreground">
+                Paid search investigation is the part of the job that doesn't
+                scale. Six tabs of context, four exports, two stale dashboards,
+                and a Slack thread nobody can find next quarter. The decision
+                takes ten seconds. The lead-up takes forty minutes — every single
+                time.
+              </p>
+              <p className="mt-5 text-[14px] leading-relaxed text-muted-foreground/80">
+                The work compounds quietly. The senior analyst stops writing the
+                playbook. The junior never sees how it was solved. The agency
+                forgets what worked last quarter.
+              </p>
+            </motion.div>
           </div>
 
           <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-border bg-border md:grid-cols-3">
@@ -380,9 +388,8 @@ function LandingPage() {
         id="pipeline"
         className="relative overflow-hidden px-8 py-32"
         style={{
-          backgroundImage: `linear-gradient(180deg, oklch(0.16 0.04 25) 0%, oklch(0.13 0.04 22) 100%), url(${ctaTexture})`,
-          backgroundBlendMode: "multiply",
-          backgroundSize: "cover",
+          background:
+            "linear-gradient(180deg, oklch(0.18 0.04 25) 0%, oklch(0.12 0.03 22) 100%)",
         }}
       >
         <div className="pointer-events-none absolute inset-0 opacity-30"
@@ -443,16 +450,15 @@ function LandingPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="mt-16 overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
+            className="mt-16 grid grid-cols-1 gap-4 rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:grid-cols-[auto_1fr_auto] md:items-center"
           >
-            <img
-              src={pipelineArt}
-              width={1600}
-              height={900}
-              loading="lazy"
-              alt="Visualization of the five-stage agentic pipeline"
-              className="block h-auto w-full opacity-95"
-            />
+            <div className="font-mono text-[11px] uppercase tracking-[0.2em] text-[oklch(0.78_0.18_55)]">
+              Median run · 38 seconds
+            </div>
+            <div className="hidden h-px bg-gradient-to-r from-[oklch(0.78_0.18_55)] via-white/15 to-transparent md:block" />
+            <div className="text-[13px] text-white/65">
+              Every stage is logged, auditable, and gated by a human at the end.
+            </div>
           </motion.div>
         </div>
       </section>
@@ -688,8 +694,15 @@ function LandingPage() {
               "radial-gradient(120% 100% at 50% 0%, oklch(0.62 0.2 38) 0%, oklch(0.42 0.18 25) 70%, oklch(0.32 0.14 22) 100%)",
           }}
         >
-          <div className="pointer-events-none absolute inset-0 opacity-30"
-            style={{ backgroundImage: `url(${ctaTexture})`, backgroundSize: "cover", mixBlendMode: "overlay" }}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-25"
+            style={{
+              backgroundImage:
+                "radial-gradient(white 1px, transparent 1px)",
+              backgroundSize: "26px 26px",
+              mixBlendMode: "overlay",
+            }}
           />
           <div className="relative">
             <Eyebrow>Start your first diagnosis</Eyebrow>
