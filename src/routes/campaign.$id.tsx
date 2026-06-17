@@ -498,6 +498,7 @@ function Detail() {
                       <ChangeItem
                         key={i}
                         {...item}
+                        color={HISTORY_COLORS[i % HISTORY_COLORS.length]}
                         isLast={i === diag.history.length - 1}
                       />
                     ))}
