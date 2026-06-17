@@ -21,6 +21,7 @@ import { useMemo, useState } from "react";
 import { Header } from "../components/scout/Header";
 import { DiagnoseModal } from "../components/scout/DiagnoseModal";
 import { campaigns as baseCampaigns, outcomes } from "../data/campaigns";
+import greetingArt from "../assets/greeting-illustration.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -88,10 +89,16 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen text-foreground bg-page-home">
+    <div className="relative min-h-screen bg-background text-foreground">
+      {/* Top gradient banner only — body stays clean white */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[560px]"
+        style={{ background: "var(--grad-page-home), linear-gradient(180deg, oklch(0.985 0.012 60) 0%, oklch(1 0 0) 100%)" }}
+      />
       <Header />
 
-      <main className="mx-auto max-w-[1320px] px-8 pb-24 pt-10">
+      <main className="relative z-10 mx-auto max-w-[1320px] px-8 pb-24 pt-10">
         {/* WORKSPACE STRIP */}
         <motion.section
           initial={{ opacity: 0, y: 12 }}
@@ -123,7 +130,7 @@ function Home() {
             <h1 className="font-display text-[clamp(40px,6vw,72px)] font-semibold leading-[0.98] tracking-tight">
               <span className="block text-muted-foreground/70">Good morning,</span>
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-primary via-[oklch(0.665_0.215_36)] to-[oklch(0.78_0.13_40)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[oklch(0.235_0.18_268)] via-[oklch(0.38_0.16_268)] to-[oklch(0.665_0.215_36)] bg-clip-text text-transparent">
                   Jordan.
                 </span>
                 <svg
@@ -133,7 +140,7 @@ function Home() {
                 >
                   <path
                     d="M2 6 Q 50 1 100 4 T 198 4"
-                    stroke="oklch(0.665 0.215 36)"
+                    stroke="oklch(0.235 0.18 268)"
                     strokeWidth="2"
                     strokeLinecap="round"
                     fill="none"
@@ -142,6 +149,16 @@ function Home() {
                 </svg>
               </span>
             </h1>
+            <div className="hidden justify-end lg:flex">
+              <img
+                src={greetingArt}
+                alt=""
+                width={420}
+                height={280}
+                loading="lazy"
+                className="h-auto w-full max-w-[420px] object-contain"
+              />
+            </div>
           </div>
         </motion.section>
 
@@ -163,7 +180,7 @@ function Home() {
           />
           <div className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[oklch(0.235_0.18_268_/_0.2)] bg-card/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.235_0.18_268)]">
                 <Sparkles className="h-3 w-3" /> Scout · campaign analyst
               </div>
               <h2 className="mt-3 font-display text-[24px] font-semibold tracking-tight md:text-[28px]">
@@ -248,9 +265,9 @@ function Home() {
                   const tone = toneOf(c);
                   const toneClasses =
                     tone === "warning"
-                      ? "bg-[oklch(0.946_0.016_82)] text-[oklch(0.665_0.215_36)] border-[oklch(0.9_0.022_80)]"
+                      ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)] border-[oklch(0.85_0.04_268)]"
                       : tone === "success"
-                        ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.235_0.18_268)] border-[oklch(0.9_0.022_80)]"
+                        ? "bg-[oklch(0.95_0.03_165)] text-[oklch(0.4_0.12_165)] border-[oklch(0.88_0.04_165)]"
                         : "bg-secondary text-muted-foreground border-border";
                   const Trend = tone === "warning" ? TrendingDown : tone === "success" ? TrendingUp : Activity;
                   return (
@@ -261,7 +278,7 @@ function Home() {
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.04 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_18px_44px_-22px_oklch(0.235_0.18_268/0.35)]"
+                      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-all hover:-translate-y-0.5 hover:border-[oklch(0.235_0.18_268)]/40 hover:shadow-[0_18px_44px_-22px_oklch(0.235_0.18_268/0.35)]"
                     >
                       <div
                         aria-hidden
@@ -276,7 +293,7 @@ function Home() {
                             #{c.id}
                           </span>
                         </div>
-                        <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                        <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[oklch(0.235_0.18_268)]" />
                       </div>
 
                       <h3 className="mt-4 font-display text-[20px] font-semibold tracking-tight">
@@ -295,9 +312,9 @@ function Home() {
                             <span
                               className={`font-display text-[26px] font-semibold leading-none ${
                                 tone === "warning"
-                                  ? "text-[oklch(0.665_0.215_36)]"
+                                  ? "text-[oklch(0.235_0.18_268)]"
                                   : tone === "success"
-                                    ? "text-[oklch(0.235_0.18_268)]"
+                                    ? "text-[oklch(0.4_0.12_165)]"
                                     : "text-foreground"
                               }`}
                             >
@@ -359,9 +376,9 @@ function Home() {
                         <div
                           className={`mt-0.5 font-display text-[16px] font-semibold ${
                             tone === "warning"
-                              ? "text-[oklch(0.665_0.215_36)]"
+                              ? "text-[oklch(0.235_0.18_268)]"
                               : tone === "success"
-                                ? "text-[oklch(0.235_0.18_268)]"
+                                ? "text-[oklch(0.4_0.12_165)]"
                                 : "text-foreground"
                           }`}
                         >
@@ -412,7 +429,7 @@ function Home() {
                 <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-muted-foreground">
                   Last week's actions
                 </span>
-                <button className="inline-flex items-center gap-1 text-[12px] font-medium text-primary hover:opacity-80">
+                <button className="inline-flex items-center gap-1 text-[12px] font-medium text-[oklch(0.235_0.18_268)] hover:opacity-80">
                   See all <ArrowUpRight className="h-3 w-3" />
                 </button>
               </div>
@@ -451,15 +468,15 @@ function Home() {
                 ))}
               </ul>
 
-              <div className="mt-6 rounded-xl border border-primary/15 bg-primary/5 p-4">
-                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-primary">
+              <div className="mt-6 rounded-xl border border-[oklch(0.235_0.18_268_/_0.18)] bg-[oklch(0.92_0.04_268_/_0.5)] p-4">
+                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.235_0.18_268)]">
                   <Sparkles className="h-3 w-3" /> Scout suggests
                 </div>
                 <p className="mt-2 text-[13px] leading-relaxed text-foreground">
                   Two HVAC campaigns share the same drifting negative-keyword list.
                   Want me to diagnose them as a group?
                 </p>
-                <button className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-primary hover:underline">
+                <button className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[oklch(0.235_0.18_268)] hover:underline">
                   Run group diagnosis <ArrowUpRight className="h-3 w-3" />
                 </button>
               </div>
