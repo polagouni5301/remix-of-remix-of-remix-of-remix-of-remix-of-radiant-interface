@@ -67,7 +67,7 @@ export function DiagnoseModal({ open, onClose, onSubmit, campaignName = "" }) {
               onChange={(e) => setNote(e.target.value)}
               placeholder="e.g. Client OK with higher spend this month — they're running a Memorial Day push."
               rows={4}
-              className="mt-6 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20"
+              className="mt-6 w-full resize-none rounded-xl border border-border bg-background px-4 py-3 text-[14px] text-foreground placeholder:text-muted-foreground focus:border-[oklch(0.235_0.18_268)] focus:outline-none focus:ring-2 focus:ring-[oklch(0.235_0.18_268)]/20"
             />
 
             <div className="mt-4 flex flex-wrap gap-2">
@@ -95,7 +95,7 @@ export function DiagnoseModal({ open, onClose, onSubmit, campaignName = "" }) {
                 </button>
                 <button
                   onClick={() => onSubmit?.(note)}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[14px] font-semibold text-primary-foreground shadow-[0_8px_24px_-12px_oklch(0.665_0.215_36/0.7)] transition hover:opacity-95"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground shadow-[0_8px_24px_-12px_oklch(0.235_0.18_268/0.7)] transition hover:opacity-95"
                 >
                   <Sparkles className="h-4 w-4" strokeWidth={2} />
                   Diagnose now

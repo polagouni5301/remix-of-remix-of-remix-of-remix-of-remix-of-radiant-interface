@@ -21,7 +21,7 @@ import { useMemo, useState } from "react";
 import { Header } from "../components/scout/Header";
 import { DiagnoseModal } from "../components/scout/DiagnoseModal";
 import { campaigns as baseCampaigns, outcomes } from "../data/campaigns";
-import greetingArt from "../assets/greeting-illustration.png";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,11 +126,11 @@ function Home() {
             </svg>
           </div>
 
-           <div className=" grid grid-cols-1 items-end gap-6 lg:grid-cols-[1.5fr_1fr]">
+           <div className="grid grid-cols-1 items-end gap-6">
             <h1 className="font-display text-[clamp(40px,6vw,72px)] font-semibold leading-[0.98] tracking-tight">
               <span className="block text-muted-foreground/70">Good morning,</span>
               <span className="relative inline-block">
-                <span className="bg-gradient-to-r from-[oklch(0.235_0.18_268)] via-[oklch(0.38_0.16_268)] to-[oklch(0.665_0.215_36)] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[oklch(0.235_0.18_268)] via-[oklch(0.38_0.16_268)] to-[oklch(0.235_0.18_268)] bg-clip-text text-transparent">
                   Jordan.
                 </span>
                 <svg
@@ -149,17 +149,8 @@ function Home() {
                 </svg>
               </span>
             </h1>
-            <div className="hidden justify-end lg:flex">
-              <img
-                src={greetingArt}
-                alt=""
-                width={420}
-                height={280}
-                loading="lazy"
-                className="h-auto w-full max-w-[420px] object-contain"
-              />
-            </div>
           </div>
+
         </motion.section>
 
         {/* SEARCH */}
