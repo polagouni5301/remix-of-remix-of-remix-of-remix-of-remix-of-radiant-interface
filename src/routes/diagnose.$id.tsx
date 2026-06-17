@@ -194,10 +194,10 @@ function Diagnosing() {
                     <span
                       className={`text-[15px] ${
                         state === "pending"
-                          ? "text-muted-foreground/70"
+                          ? "text-muted-foreground"
                           : state === "active"
                             ? "font-semibold text-foreground"
-                            : "text-foreground"
+                            : "text-foreground/90"
                       }`}
                     >
                       {label}
@@ -248,5 +248,5 @@ function StepDot({ state }) {
       </div>
     );
   }
-  return <div className="h-6 w-6 rounded-full bg-secondary" />;
+  return <div className="h-6 w-6 rounded-full border border-border bg-secondary" />;
 }
