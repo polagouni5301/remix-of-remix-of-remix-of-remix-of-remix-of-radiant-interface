@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, useNavigate, redirect } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Search,
@@ -17,11 +17,13 @@ import {
   Rows3,
   Database,
 } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Header } from "../components/scout/Header";
 import { DiagnoseModal } from "../components/scout/DiagnoseModal";
-import { campaigns as baseCampaigns, outcomes } from "../data/campaigns";
-
+import { getCampaigns, getOutcomes, seedCampaigns } from "../lib/campaigns.functions";
+import { useAuth } from "../lib/auth-context";
+import { useServerFn } from "@tanstack/react-start";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -41,16 +43,45 @@ const FILTERS = ["All", "Needs a look", "Pacing", "CPL", "Wins"] as const;
 type Filter = (typeof FILTERS)[number];
 
 function toneOf(c: any): "success" | "warning" | "neutral" {
-  return c.metric.tone as any;
+  return c.metric_tone as any;
 }
 
 function Home() {
   const navigate = useNavigate();
+  const { user, loading: authLoading } = useAuth();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<any>(null);
   const [filter, setFilter] = useState<Filter>("All");
   const [view, setView] = useState<"grid" | "list">("grid");
+
+  const fetchCampaigns = useServerFn(getCampaigns);
+  const fetchOutcomes = useServerFn(getOutcomes);
+  const seedData = useServerFn(seedCampaigns);
+
+  const { data: campaigns = [], isLoading: campaignsLoading, refetch } = useQuery({
+    queryKey: ["campaigns"],
+    queryFn: fetchCampaigns,
+  });
+
+  const { data: dbOutcomes = [] } = useQuery({
+    queryKey: ["outcomes"],
+    queryFn: fetchOutcomes,
+  });
+
+  // Seed data if empty
+  useEffect(() => {
+    if (!campaignsLoading && campaigns.length === 0) {
+      seedData().then(() => refetch());
+    }
+  }, [campaignsLoading, campaigns.length]);
+
+  // Redirect to login if not authenticated
+  useEffect(() => {
+    if (!authLoading && !user) {
+      navigate({ to: "/login" });
+    }
+  }, [authLoading, user]);
 
   const openModal = (c: any) => {
     setSelected(c);
@@ -59,34 +90,36 @@ function Home() {
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return baseCampaigns.filter((c) => {
-      if (q && !(c.name.toLowerCase().includes(q) || c.id.includes(q))) return false;
+    return campaigns.filter((c: any) => {
+      if (q && !(c.name.toLowerCase().includes(q) || c.external_id.includes(q))) return false;
       if (filter === "Needs a look") return toneOf(c) === "warning";
       if (filter === "Wins") return toneOf(c) === "success";
-      if (filter === "Pacing") return c.metric.label.toLowerCase().includes("util") || c.metric.label.toLowerCase().includes("imp");
-      if (filter === "CPL") return c.metric.label.toLowerCase().includes("cpl");
+      if (filter === "Pacing") return c.metric_label.toLowerCase().includes("util") || c.metric_label.toLowerCase().includes("imp");
+      if (filter === "CPL") return c.metric_label.toLowerCase().includes("cpl");
       return true;
     });
-  }, [query, filter]);
+  }, [query, filter, campaigns]);
 
   const handleSearch = () => {
     const match =
-      baseCampaigns.find((c) => c.id === query.trim()) ||
-      baseCampaigns.find((c) => c.name.toLowerCase().includes(query.trim().toLowerCase()));
-    openModal(match || baseCampaigns[0]);
+      campaigns.find((c: any) => c.external_id === query.trim()) ||
+      campaigns.find((c: any) => c.name.toLowerCase().includes(query.trim().toLowerCase()));
+    openModal(match || campaigns[0]);
   };
 
   const runDiagnosis = () => {
     if (!selected) return;
     setOpen(false);
-    navigate({ to: "/diagnose/$id", params: { id: selected.id } });
+    navigate({ to: "/diagnose/$id", params: { id: selected.external_id } });
   };
 
   const counts = {
-    total: baseCampaigns.length,
-    warning: baseCampaigns.filter((c) => toneOf(c) === "warning").length,
-    success: baseCampaigns.filter((c) => toneOf(c) === "success").length,
+    total: campaigns.length,
+    warning: campaigns.filter((c: any) => toneOf(c) === "warning").length,
+    success: campaigns.filter((c: any) => toneOf(c) === "success").length,
   };
+
+  const userName = user?.email ? user.email.split("@")[0] : "Jordan";
 
   return (
     <div className="relative min-h-screen bg-background text-foreground">
@@ -131,7 +164,7 @@ function Home() {
               <span className="block text-muted-foreground/70">Good morning,</span>
               <span className="relative inline-block">
                 <span className="bg-gradient-to-r from-[oklch(0.235_0.18_268)] via-[oklch(0.38_0.16_268)] to-[oklch(0.235_0.18_268)] bg-clip-text text-transparent">
-                  Jordan.
+                  {userName.charAt(0).toUpperCase() + userName.slice(1)}.
                 </span>
                 <svg
                   aria-hidden
@@ -252,7 +285,7 @@ function Home() {
             {/* GRID VIEW */}
             {view === "grid" && (
               <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
-                {filtered.map((c, i) => {
+                {filtered.map((c: any, i: number) => {
                   const tone = toneOf(c);
                   const toneClasses =
                     tone === "warning"
@@ -281,7 +314,7 @@ function Home() {
                             {c.vertical}
                           </span>
                           <span className="text-[11px] font-mono text-muted-foreground">
-                            #{c.id}
+                            #{c.external_id}
                           </span>
                         </div>
                         <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[oklch(0.235_0.18_268)]" />
@@ -297,7 +330,7 @@ function Home() {
                       <div className="mt-5 flex items-end justify-between border-t border-border pt-4">
                         <div>
                           <div className="text-[11px] uppercase tracking-widest text-muted-foreground">
-                            {c.metric.label}
+                            {c.metric_label}
                           </div>
                           <div className="mt-1 flex items-baseline gap-2">
                             <span
@@ -309,10 +342,10 @@ function Home() {
                                     : "text-foreground"
                               }`}
                             >
-                              {c.metric.value}
+                              {c.metric_value}
                             </span>
                             <span className="text-[12px] text-muted-foreground">
-                              {c.metric.vs}
+                              {c.metric_vs}
                             </span>
                           </div>
                         </div>
@@ -326,7 +359,7 @@ function Home() {
 
                       <div className="mt-4 flex items-center gap-2 text-[11px] text-muted-foreground">
                         <Clock className="h-3 w-3" />
-                        Last touched {c.lastActionDays}d ago
+                        Last touched {c.last_action_days}d ago
                       </div>
                     </motion.button>
                   );
@@ -343,7 +376,7 @@ function Home() {
                   <span>Last touched</span>
                   <span />
                 </div>
-                {filtered.map((c, i) => {
+                {filtered.map((c: any, i: number) => {
                   const tone = toneOf(c);
                   return (
                     <motion.button
@@ -357,12 +390,12 @@ function Home() {
                       <div>
                         <div className="font-display text-[15px] font-semibold">{c.name}</div>
                         <div className="mt-0.5 text-[12px] text-muted-foreground">
-                          {c.vertical} · #{c.id}
+                          {c.vertical} · #{c.external_id}
                         </div>
                       </div>
                       <div>
                         <div className="text-[11px] uppercase tracking-widest text-muted-foreground">
-                          {c.metric.label}
+                          {c.metric_label}
                         </div>
                         <div
                           className={`mt-0.5 font-display text-[16px] font-semibold ${
@@ -373,13 +406,13 @@ function Home() {
                                 : "text-foreground"
                           }`}
                         >
-                          {c.metric.value}{" "}
+                          {c.metric_value}{" "}
                           <span className="text-[12px] font-normal text-muted-foreground">
-                            {c.metric.vs}
+                            {c.metric_vs}
                           </span>
                         </div>
                       </div>
-                      <div className="text-[13px] text-muted-foreground">{c.lastActionDays} days ago</div>
+                      <div className="text-[13px] text-muted-foreground">{c.last_action_days} days ago</div>
                       <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
                     </motion.button>
                   );
@@ -387,102 +420,120 @@ function Home() {
               </div>
             )}
 
-            {filtered.length === 0 && (
-              <div className="mt-6 rounded-2xl border border-dashed border-border bg-secondary/40 p-10 text-center">
-                <Filter className="mx-auto h-5 w-5 text-muted-foreground" />
-                <p className="mt-3 text-[14px] text-muted-foreground">
-                  Nothing matches that filter. Try another slice.
+            {filtered.length === 0 && !campaignsLoading && (
+              <div className="mt-12 flex flex-col items-center justify-center rounded-2xl border border-border bg-card p-12 text-center">
+                <Database className="h-8 w-8 text-muted-foreground" />
+                <p className="mt-3 text-[15px] font-medium text-foreground">No campaigns found</p>
+                <p className="mt-1 text-[13px] text-muted-foreground">
+                  Try adjusting your search or filter.
                 </p>
               </div>
             )}
-
-            <div className="mt-8 flex items-start gap-4 rounded-2xl border border-dashed border-border bg-secondary/40 p-5">
-              <Search className="mt-0.5 h-5 w-5 shrink-0 text-muted-foreground" />
-              <p className="text-[14px] text-muted-foreground">
-                <span className="font-semibold text-foreground">
-                  Looking for a campaign that isn't here?
-                </span>{" "}
-                Use the search above — Scout can run a diagnosis on anything in your
-                book. You always pick what's worth your time.
-              </p>
-            </div>
           </div>
 
-          {/* SIDEBAR — recent outcomes */}
-          <aside>
+          {/* SIDEBAR */}
+          <aside className="space-y-8">
             <motion.div
-              initial={{ opacity: 0, x: 12 }}
+              initial={{ opacity: 0, x: 14 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.15, duration: 0.4 }}
-              className="sticky top-24 rounded-2xl border border-border bg-card p-6"
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="rounded-2xl border border-border bg-card p-5"
             >
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-muted-foreground">
-                  Last week's actions
+                <h3 className="text-[13px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  Scout suggests
+                </h3>
+                <span className="inline-flex items-center gap-1 rounded-full bg-[oklch(0.92_0.04_268)] px-2 py-0.5 text-[11px] font-medium text-[oklch(0.235_0.18_268)]">
+                  <Sparkles className="h-3 w-3" /> {counts.warning} actions
                 </span>
-                <button className="inline-flex items-center gap-1 text-[12px] font-medium text-[oklch(0.235_0.18_268)] hover:opacity-80">
-                  See all <ArrowUpRight className="h-3 w-3" />
+              </div>
+              <ul className="mt-4 space-y-3">
+                {campaigns.filter((c: any) => toneOf(c) === "warning").slice(0, 4).map((c: any) => (
+                  <li key={c.id} className="flex items-start gap-3">
+                    <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[oklch(0.235_0.18_268)]" />
+                    <div>
+                      <button
+                        onClick={() => openModal(c)}
+                        className="text-left text-[13px] font-medium text-foreground hover:underline"
+                      >
+                        {c.name}
+                      </button>
+                      <p className="text-[12px] text-muted-foreground">{c.note}</p>
+                    </div>
+                  </li>
+                ))}
+                {campaigns.filter((c: any) => toneOf(c) === "warning").length === 0 && (
+                  <li className="flex items-center gap-2 text-[13px] text-muted-foreground">
+                    <CheckCircle2 className="h-4 w-4 text-[oklch(0.4_0.12_165)]" />
+                    All campaigns look healthy.
+                  </li>
+                )}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 14 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="rounded-2xl border border-border bg-card p-5"
+            >
+              <div className="flex items-center justify-between">
+                <h3 className="text-[13px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  Recent outcomes
+                </h3>
+                <button className="text-[11px] font-medium text-primary hover:underline">
+                  View all
                 </button>
               </div>
-              <h3 className="mt-2 font-display text-[19px] font-semibold tracking-tight">
-                What your decisions did
-              </h3>
-
-              <ul className="mt-5 space-y-5">
-                {outcomes.map((o) => (
-                  <li
-                    key={o.account}
-                    className="border-t border-border pt-5 first:border-t-0 first:pt-0"
-                  >
-                    <div className="flex items-baseline justify-between">
-                      <span className="text-[14px] font-semibold text-foreground">
-                        {o.account}
-                      </span>
+              <ul className="mt-4 space-y-3">
+                {dbOutcomes.map((o: any) => (
+                  <li key={o.id} className="rounded-xl border border-border p-3 transition hover:bg-secondary/30">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[12px] font-semibold text-foreground">{o.account}</span>
                       <span className="text-[11px] text-muted-foreground">{o.ago}</span>
                     </div>
-                    <p className="mt-1 text-[13px] text-muted-foreground">{o.action}</p>
+                    <p className="mt-1 text-[12px] text-muted-foreground">{o.action}</p>
                     <div className="mt-2 flex items-center gap-2">
                       <span
-                        className={`text-[13px] font-semibold ${
-                          o.tone === "success" ? "text-[oklch(0.235_0.18_268)]" : "text-foreground"
+                        className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[11px] font-medium ${
+                          o.tone === "success"
+                            ? "bg-[oklch(0.95_0.03_165)] text-[oklch(0.4_0.12_165)] border-[oklch(0.88_0.04_165)]"
+                            : o.tone === "warning"
+                              ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)] border-[oklch(0.85_0.04_268)]"
+                              : "bg-secondary text-muted-foreground border-border"
                         }`}
                       >
+                        {o.tone === "success" ? (
+                          <CheckCircle2 className="h-3 w-3" />
+                        ) : o.tone === "warning" ? (
+                          <AlertTriangle className="h-3 w-3" />
+                        ) : (
+                          <Activity className="h-3 w-3" />
+                        )}
                         {o.result}
                       </span>
                       {o.badge && (
-                        <span className="rounded-md bg-secondary px-2 py-0.5 text-[10px] font-medium tracking-wider text-muted-foreground">
+                        <span className="text-[10px] font-mono uppercase tracking-widest text-muted-foreground">
                           {o.badge}
                         </span>
                       )}
                     </div>
                   </li>
                 ))}
+                {dbOutcomes.length === 0 && (
+                  <li className="text-[13px] text-muted-foreground">No outcomes yet.</li>
+                )}
               </ul>
-
-              <div className="mt-6 rounded-xl border border-[oklch(0.235_0.18_268_/_0.18)] bg-[oklch(0.92_0.04_268_/_0.5)] p-4">
-                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.235_0.18_268)]">
-                  <Sparkles className="h-3 w-3" /> Scout suggests
-                </div>
-                <p className="mt-2 text-[13px] leading-relaxed text-foreground">
-                  Two HVAC campaigns share the same drifting negative-keyword list.
-                  Want me to diagnose them as a group?
-                </p>
-                <button className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[oklch(0.235_0.18_268)] hover:underline">
-                  Run group diagnosis <ArrowUpRight className="h-3 w-3" />
-                </button>
-              </div>
             </motion.div>
           </aside>
         </section>
       </main>
 
-      
-
       <DiagnoseModal
         open={open}
         onClose={() => setOpen(false)}
-        onSubmit={runDiagnosis}
-        campaignName={selected?.name || ""}
+        campaign={selected}
+        onRun={runDiagnosis}
       />
     </div>
   );
