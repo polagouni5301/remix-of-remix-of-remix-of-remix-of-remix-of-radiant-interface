@@ -893,11 +893,13 @@ function AppliedScreen({
               Open in Admin <ArrowRight className="h-4 w-4" />
             </a>
           ) : (
-            <Button asChild className="h-11 rounded-full px-5 text-[13.5px] font-semibold">
-              <Link to="/observation-schedule/$id" params={{ id: campaign.id }}>
-                See observation schedule <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
+            <Link
+              to="/observation-schedule/$id"
+              params={{ id: campaign.id }}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 text-[13.5px] font-semibold text-[oklch(0.99_0_0)] shadow-[0_12px_28px_-12px_oklch(0.235_0.18_268/0.7)] transition hover:opacity-95"
+            >
+              See observation schedule <ArrowRight className="h-4 w-4" />
+            </Link>
           )}
           <button
             onClick={onReset}
