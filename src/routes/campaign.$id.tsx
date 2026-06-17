@@ -423,7 +423,7 @@ function Detail() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.4 }}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-2xl border border-[oklch(0.235_0.18_268)]/12 bg-card/75 p-8 shadow-[0_24px_60px_-40px_oklch(0.235_0.18_268/0.55)] backdrop-blur-xl"
               >
                 <div className="text-[11px] font-semibold tracking-[0.14em] text-muted-foreground">
                   SCOUT'S REASONING
