@@ -1300,9 +1300,25 @@ function PublisherBars({ data }: { data: Array<{ p: string; v: number; share: st
   const total = data.reduce((a, b) => a + b.v, 0);
   return (
     <div className="mt-3">
-      <div className="flex h-3 w-full overflow-hidden rounded-full border border-border">
+      <div className="flex h-3.5 w-full gap-1 overflow-hidden rounded-full">
         {data.map((d) => (
-          <span key={d.p} style={{ width: `${(d.v / total) * 100}%`, background: d.color }} />
+          <span
+            key={d.p}
+            className="h-full rounded-full transition-all"
+            style={{
+              width: `${(d.v / total) * 100}%`,
+              background: `linear-gradient(90deg, ${d.color}, color-mix(in oklab, ${d.color} 70%, white))`,
+              boxShadow: `0 1px 6px -1px color-mix(in oklab, ${d.color} 55%, transparent)`,
+            }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+        {data.map((d) => (
+          <span key={d.p} className="inline-flex items-center gap-1.5 text-[11.5px] text-muted-foreground">
+            <span className="h-2 w-2 rounded-full" style={{ background: d.color }} />
+            {d.p} · <span className="font-semibold text-foreground">{d.share}</span>
+          </span>
         ))}
       </div>
       <div className="mt-4 grid grid-cols-[1.4fr_auto_auto_auto_auto] gap-x-3 gap-y-2 text-[12.5px]">
