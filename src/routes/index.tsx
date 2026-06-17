@@ -278,7 +278,7 @@ function Home() {
                       initial={{ opacity: 0, y: 14 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.04 * i, duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-[0_18px_44px_-22px_oklch(0.235_0.18_268/0.35)]"
+                      className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left transition-all hover:-translate-y-0.5 hover:border-[oklch(0.235_0.18_268)]/40 hover:shadow-[0_18px_44px_-22px_oklch(0.235_0.18_268/0.35)]"
                     >
                       <div
                         aria-hidden
@@ -293,7 +293,7 @@ function Home() {
                             #{c.id}
                           </span>
                         </div>
-                        <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-primary" />
+                        <ArrowUpRight className="h-4 w-4 text-muted-foreground transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[oklch(0.235_0.18_268)]" />
                       </div>
 
                       <h3 className="mt-4 font-display text-[20px] font-semibold tracking-tight">
