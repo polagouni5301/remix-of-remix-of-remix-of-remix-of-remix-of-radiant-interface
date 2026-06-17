@@ -21,7 +21,6 @@ import { Header } from "../components/scout/Header";
 import { ScoutMark } from "../components/scout/Logo";
 import { DiagnoseModal } from "../components/scout/DiagnoseModal";
 import { DecisionCapture } from "../components/scout/DecisionCapture";
-import { Button } from "../components/ui/button";
 import { getCampaign } from "../data/campaigns";
 
 export const Route = createFileRoute("/campaign/$id")({
@@ -298,21 +297,27 @@ function Detail() {
       <Header />
 
       <main className="mx-auto max-w-[1280px] px-8 pb-24 pt-8">
-        {/* Crumb */}
-        <div className="flex flex-wrap items-center justify-between gap-3 text-[13px] text-muted-foreground">
+        {/* Crumb / top bar */}
+        <div
+          className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[oklch(0.235_0.18_268)]/15 px-5 py-3 text-[13px] text-muted-foreground shadow-[0_10px_30px_-22px_oklch(0.235_0.18_268/0.6)] backdrop-blur-xl"
+          style={{
+            background:
+              "linear-gradient(120deg, oklch(0.235 0.18 268 / 0.08) 0%, oklch(1 0 0 / 0.7) 45%, oklch(0.6 0.13 200 / 0.08) 100%)",
+          }}
+        >
           <div className="flex min-w-0 items-center gap-3">
             <Link
               to="/"
-              className="inline-flex cursor-pointer items-center gap-1.5 font-semibold text-foreground transition hover:text-[oklch(0.235_0.18_268)]"
+              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-[oklch(0.235_0.18_268)]/10 px-3 py-1.5 font-semibold text-[oklch(0.235_0.18_268)] transition hover:bg-[oklch(0.235_0.18_268)]/15"
             >
               <ArrowLeft className="h-4 w-4" /> Back to campaigns
             </Link>
-            <span>·</span>
-            <span className="font-mono">#{campaign.id}</span>
-            <span>·</span>
+            <span className="text-[oklch(0.235_0.18_268)]/30">·</span>
+            <span className="font-mono text-foreground">#{campaign.id}</span>
+            <span className="text-[oklch(0.235_0.18_268)]/30">·</span>
             <span className="truncate font-semibold text-foreground">{campaign.name}</span>
           </div>
-          <span className="font-mono text-[11.5px] uppercase tracking-[0.14em]">
+          <span className="rounded-full bg-[oklch(0.6_0.13_200)]/12 px-3 py-1 font-mono text-[11.5px] uppercase tracking-[0.14em] text-[oklch(0.42_0.11_215)]">
             data through yesterday EOD
           </span>
         </div>
@@ -418,7 +423,7 @@ function Detail() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1, duration: 0.4 }}
-                className="rounded-2xl border border-border bg-card p-8"
+                className="rounded-2xl border border-[oklch(0.235_0.18_268)]/12 bg-card/75 p-8 shadow-[0_24px_60px_-40px_oklch(0.235_0.18_268/0.55)] backdrop-blur-xl"
               >
                 <div className="text-[11px] font-semibold tracking-[0.14em] text-muted-foreground">
                   SCOUT'S REASONING
@@ -461,7 +466,7 @@ function Detail() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.4 }}
-                  className="rounded-2xl border border-border bg-card p-6"
+                  className="rounded-2xl border border-[oklch(0.6_0.13_200)]/15 bg-card/75 p-6 shadow-[0_24px_60px_-40px_oklch(0.6_0.13_200/0.45)] backdrop-blur-xl"
                 >
                   <button
                     onClick={() => setEvidenceOpen((v) => !v)}
@@ -479,7 +484,7 @@ function Detail() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
-                  className="rounded-2xl border border-border bg-card p-6"
+                  className="rounded-2xl border border-[oklch(0.58_0.19_300)]/15 bg-card/75 p-6 shadow-[0_24px_60px_-40px_oklch(0.58_0.19_300/0.4)] backdrop-blur-xl"
                 >
                   <div className="text-[11px] font-semibold tracking-[0.14em] text-muted-foreground">
                     CHANGE HISTORY · LAST 14 DAYS
@@ -492,6 +497,7 @@ function Detail() {
                       <ChangeItem
                         key={i}
                         {...item}
+                        color={HISTORY_COLORS[i % HISTORY_COLORS.length]}
                         isLast={i === diag.history.length - 1}
                       />
                     ))}
@@ -505,7 +511,7 @@ function Detail() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.4 }}
-              className="mt-8 overflow-hidden rounded-2xl border border-border bg-card"
+              className="mt-8 overflow-hidden rounded-2xl border border-[oklch(0.235_0.18_268)]/12 bg-card/80 shadow-[0_30px_70px_-45px_oklch(0.235_0.18_268/0.6)] backdrop-blur-xl"
             >
               <div
                 aria-hidden
@@ -518,7 +524,13 @@ function Detail() {
               <div className="grid grid-cols-1 gap-6 p-8 lg:grid-cols-[1fr_320px]">
                 <ActionPanel diag={diag} campaign={campaign} onApply={requestDecision} />
 
-                <aside className="rounded-2xl border border-border bg-secondary/40 p-5">
+                <aside
+                  className="rounded-2xl border border-[oklch(0.235_0.18_268)]/12 p-5 backdrop-blur"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, oklch(0.235 0.18 268 / 0.06) 0%, oklch(0.6 0.13 200 / 0.06) 100%)",
+                  }}
+                >
                   <div className="text-[11px] font-semibold tracking-[0.14em] text-muted-foreground">
                     CLIENT-READY SUMMARY
                   </div>
@@ -886,11 +898,13 @@ function AppliedScreen({
               Open in Admin <ArrowRight className="h-4 w-4" />
             </a>
           ) : (
-            <Button asChild className="h-11 rounded-full px-5 text-[13.5px] font-semibold">
-              <Link to="/observation-schedule/$id" params={{ id: campaign.id }}>
-                See observation schedule <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Button>
+            <Link
+              to="/observation-schedule/$id"
+              params={{ id: campaign.id }}
+              className="inline-flex h-11 items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 text-[13.5px] font-semibold text-[oklch(0.99_0_0)] shadow-[0_12px_28px_-12px_oklch(0.235_0.18_268/0.7)] transition hover:opacity-95"
+            >
+              See observation schedule <ArrowRight className="h-4 w-4" />
+            </Link>
           )}
           <button
             onClick={onReset}
@@ -1047,8 +1061,8 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
           <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="80% of spend on a single publisher." />
           <PublisherBars data={[
             { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.235 0.18 268)" },
-            { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.38 0.16 268)" },
-            { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.38 0.16 268)" },
+            { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.6 0.13 200)" },
+            { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.58 0.19 300)" },
           ]} />
         </div>
       </div>
@@ -1071,10 +1085,10 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
       <div className="mt-5 space-y-5">
         <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="Drop is uniform across all publishers." />
         <PublisherBars data={[
-          { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.235 0.18 268)" },
+          { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.235 0.18 268)" },
+          { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.6 0.13 200)" },
+          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.58 0.19 300)" },
+          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.62 0.15 160)" },
         ]} />
         <div className="border-t border-border pt-4">
           <EvidenceTitle label="CVR · LAST 14 DAYS" headline="4.2% → 2.3% — uniform across segments." />
@@ -1202,31 +1216,46 @@ function MetricTile({ label, value, vs, tone }: { label: string; value: string; 
   );
 }
 
+const HISTORY_COLORS = [
+  "oklch(0.235 0.18 268)", // navy
+  "oklch(0.6 0.13 200)",   // teal
+  "oklch(0.58 0.19 300)",  // violet
+  "oklch(0.62 0.15 160)",  // green
+];
+
 function ChangeItem({
   label,
   title,
   sub,
   ago,
+  color = "oklch(0.235 0.18 268)",
   isLast,
 }: {
   label: string;
   title: string;
   sub?: string;
   ago: string;
+  color?: string;
   isLast?: boolean;
 }) {
   return (
     <li className="flex items-start gap-3">
       <div className="relative flex shrink-0 flex-col items-center">
-        <span className="relative z-10 mt-1.5 h-2.5 w-2.5 rounded-full border-2 border-[oklch(0.235_0.18_268)] bg-card" />
+        <span
+          className="relative z-10 mt-1.5 h-3 w-3 rounded-full border-2 bg-card"
+          style={{ borderColor: color, boxShadow: `0 0 0 3px color-mix(in oklab, ${color} 16%, transparent)` }}
+        />
         {!isLast && (
-          <div className="absolute top-[11px] h-[calc(100%+1.25rem)] w-0.5 bg-[oklch(0.235_0.18_268)]/30" />
+          <div
+            className="absolute top-[12px] h-[calc(100%+1.25rem)] w-0.5"
+            style={{ background: `linear-gradient(180deg, ${color}, color-mix(in oklab, ${color} 25%, transparent))` }}
+          />
         )}
       </div>
       <div className="flex-1">
         <div className="flex items-baseline justify-between gap-2">
           <div className="text-[14px]">
-            <span className="font-semibold text-[oklch(0.235_0.18_268)]">{label}</span>{" "}
+            <span className="font-semibold" style={{ color }}>{label}</span>{" "}
             <span className="text-muted-foreground">·</span>{" "}
             <span className="font-medium text-foreground">{title}</span>
           </div>
@@ -1278,9 +1307,25 @@ function PublisherBars({ data }: { data: Array<{ p: string; v: number; share: st
   const total = data.reduce((a, b) => a + b.v, 0);
   return (
     <div className="mt-3">
-      <div className="flex h-3 w-full overflow-hidden rounded-full border border-border">
+      <div className="flex h-3.5 w-full gap-1 overflow-hidden rounded-full">
         {data.map((d) => (
-          <span key={d.p} style={{ width: `${(d.v / total) * 100}%`, background: d.color }} />
+          <span
+            key={d.p}
+            className="h-full rounded-full transition-all"
+            style={{
+              width: `${(d.v / total) * 100}%`,
+              background: `linear-gradient(90deg, ${d.color}, color-mix(in oklab, ${d.color} 70%, white))`,
+              boxShadow: `0 1px 6px -1px color-mix(in oklab, ${d.color} 55%, transparent)`,
+            }}
+          />
+        ))}
+      </div>
+      <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+        {data.map((d) => (
+          <span key={d.p} className="inline-flex items-center gap-1.5 text-[11.5px] text-muted-foreground">
+            <span className="h-2 w-2 rounded-full" style={{ background: d.color }} />
+            {d.p} · <span className="font-semibold text-foreground">{d.share}</span>
+          </span>
         ))}
       </div>
       <div className="mt-4 grid grid-cols-[1.4fr_auto_auto_auto_auto] gap-x-3 gap-y-2 text-[12.5px]">
