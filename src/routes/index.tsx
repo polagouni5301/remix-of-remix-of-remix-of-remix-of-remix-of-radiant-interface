@@ -312,9 +312,9 @@ function Home() {
                             <span
                               className={`font-display text-[26px] font-semibold leading-none ${
                                 tone === "warning"
-                                  ? "text-[oklch(0.665_0.215_36)]"
+                                  ? "text-[oklch(0.235_0.18_268)]"
                                   : tone === "success"
-                                    ? "text-[oklch(0.235_0.18_268)]"
+                                    ? "text-[oklch(0.4_0.12_165)]"
                                     : "text-foreground"
                               }`}
                             >
