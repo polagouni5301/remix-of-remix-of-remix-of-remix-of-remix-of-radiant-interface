@@ -329,7 +329,7 @@ function Detail() {
               className="relative mt-6 overflow-hidden rounded-3xl border border-border"
               style={{
                 background:
-                  "linear-gradient(135deg, oklch(1 0 0) 0%, oklch(0.94 0.05 45) 60%, oklch(0.94 0.05 45) 100%)",
+                  "linear-gradient(135deg, oklch(1 0 0) 0%, oklch(0.92 0.04 268) 60%, oklch(0.92 0.04 268) 100%)",
               }}
             >
               <div
@@ -1191,7 +1191,7 @@ function Chips({ chips }: { chips: string[] }) {
 }
 
 function MetricTile({ label, value, vs, tone }: { label: string; value: string; vs: string; tone: "ok" | "warn" }) {
-  const bg = tone === "warn" ? "oklch(0.94 0.05 45)" : "oklch(0.94 0.05 45)";
+  const bg = tone === "warn" ? "oklch(0.92 0.04 268)" : "oklch(0.92 0.04 268)";
   const border = tone === "warn" ? "oklch(0.9 0.022 80)" : "oklch(0.9 0.022 80)";
   return (
     <div className="cursor-pointer rounded-xl border p-4 transition-colors hover:border-[oklch(0.235_0.18_268)]/40" style={{ background: bg, borderColor: border }}>
