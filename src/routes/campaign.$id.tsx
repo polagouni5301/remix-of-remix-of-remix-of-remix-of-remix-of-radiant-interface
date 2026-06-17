@@ -21,7 +21,6 @@ import { Header } from "../components/scout/Header";
 import { ScoutMark } from "../components/scout/Logo";
 import { DiagnoseModal } from "../components/scout/DiagnoseModal";
 import { DecisionCapture } from "../components/scout/DecisionCapture";
-import { Button } from "../components/ui/button";
 import { getCampaign } from "../data/campaigns";
 
 export const Route = createFileRoute("/campaign/$id")({
