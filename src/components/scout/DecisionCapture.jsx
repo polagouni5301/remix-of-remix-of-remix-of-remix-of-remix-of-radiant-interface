@@ -200,7 +200,7 @@ export function DecisionCapture({
                     </button>
                     <button
                       onClick={() => onDecision("applied", { kind: "adjust", note })}
-                      className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[13px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[13px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95"
                     >
                       <Check className="h-4 w-4" /> Apply adjusted
                     </button>

@@ -525,7 +525,7 @@ function Detail() {
                   <p className="mt-3 text-[13px] italic leading-relaxed text-foreground">
                     "{diag.appliedCopy}"
                   </p>
-                  <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-4 py-2 text-[13px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95">
+                  <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-4 py-2 text-[13px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95">
                     <Copy className="h-3.5 w-3.5" /> Copy + log to CRM
                   </button>
                 </aside>
@@ -602,7 +602,7 @@ function ActionPanel({
         <div className="mt-5 flex items-center gap-3">
           <button
             onClick={() => onApply("investigated")}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95"
           >
             <ExternalLink className="h-4 w-4" /> Take me there
           </button>
@@ -659,7 +659,7 @@ function ActionPanel({
         <div className="mt-5 flex items-center gap-4">
           <button
             onClick={() => onApply("applied")}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95"
           >
             <Check className="h-4 w-4" /> Apply this change
           </button>
@@ -703,7 +703,7 @@ function ActionPanel({
         <div className="mt-5 flex items-center gap-4">
           <button
             onClick={() => onApply("applied")}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95"
           >
             <Check className="h-4 w-4" /> Add negatives
           </button>
@@ -731,7 +731,7 @@ function ActionPanel({
       <div className="mt-5 flex items-center gap-3">
         <button
           onClick={() => onApply("ack")}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
+          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95"
         >
           <Check className="h-4 w-4" /> Acknowledge
         </button>
@@ -881,7 +881,7 @@ function AppliedScreen({
           {isInvestigated ? (
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[13.5px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
+              className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[13.5px] font-semibold text-[oklch(0.99_0_0)] transition hover:opacity-95"
             >
               Open in Admin <ArrowRight className="h-4 w-4" />
             </a>

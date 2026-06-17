@@ -127,7 +127,7 @@ function Home() {
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 top-0 z-0 h-[560px]"
-        style={{ background: "var(--grad-page-home), linear-gradient(180deg, oklch(0.985 0.012 60) 0%, oklch(1 0 0) 100%)" }}
+        style={{ background: "var(--grad-home-banner)" }}
       />
       <Header />
 

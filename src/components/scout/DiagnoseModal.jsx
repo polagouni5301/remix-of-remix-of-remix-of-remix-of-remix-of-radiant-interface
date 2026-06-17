@@ -95,7 +95,7 @@ export function DiagnoseModal({ open, onClose, onSubmit, campaignName = "" }) {
                 </button>
                 <button
                   onClick={() => onSubmit?.(note)}
-                  className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground shadow-[0_8px_24px_-12px_oklch(0.235_0.18_268/0.7)] transition hover:opacity-95"
+                  className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.99_0_0)] shadow-[0_8px_24px_-12px_oklch(0.235_0.18_268/0.7)] transition hover:opacity-95"
                 >
                   <Sparkles className="h-4 w-4" strokeWidth={2} />
                   Diagnose now
