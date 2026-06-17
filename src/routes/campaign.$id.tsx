@@ -511,7 +511,7 @@ function Detail() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.25, duration: 0.4 }}
-              className="mt-8 overflow-hidden rounded-2xl border border-border bg-card"
+              className="mt-8 overflow-hidden rounded-2xl border border-[oklch(0.235_0.18_268)]/12 bg-card/80 shadow-[0_30px_70px_-45px_oklch(0.235_0.18_268/0.6)] backdrop-blur-xl"
             >
               <div
                 aria-hidden
@@ -524,7 +524,13 @@ function Detail() {
               <div className="grid grid-cols-1 gap-6 p-8 lg:grid-cols-[1fr_320px]">
                 <ActionPanel diag={diag} campaign={campaign} onApply={requestDecision} />
 
-                <aside className="rounded-2xl border border-border bg-secondary/40 p-5">
+                <aside
+                  className="rounded-2xl border border-[oklch(0.235_0.18_268)]/12 p-5 backdrop-blur"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, oklch(0.235 0.18 268 / 0.06) 0%, oklch(0.6 0.13 200 / 0.06) 100%)",
+                  }}
+                >
                   <div className="text-[11px] font-semibold tracking-[0.14em] text-muted-foreground">
                     CLIENT-READY SUMMARY
                   </div>
