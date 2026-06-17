@@ -265,9 +265,9 @@ function Home() {
                   const tone = toneOf(c);
                   const toneClasses =
                     tone === "warning"
-                      ? "bg-[oklch(0.946_0.016_82)] text-[oklch(0.665_0.215_36)] border-[oklch(0.9_0.022_80)]"
+                      ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)] border-[oklch(0.85_0.04_268)]"
                       : tone === "success"
-                        ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.235_0.18_268)] border-[oklch(0.9_0.022_80)]"
+                        ? "bg-[oklch(0.95_0.03_165)] text-[oklch(0.4_0.12_165)] border-[oklch(0.88_0.04_165)]"
                         : "bg-secondary text-muted-foreground border-border";
                   const Trend = tone === "warning" ? TrendingDown : tone === "success" ? TrendingUp : Activity;
                   return (
