@@ -56,7 +56,7 @@ function Diagnosing() {
   const progress = Math.min(step / STEPS.length, 1);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground" style={{ background: "var(--grad-canvas)" }}>
       <Header />
       <main className="mx-auto flex max-w-[920px] flex-col items-center px-8  pb-24">
         <motion.div
