@@ -298,21 +298,27 @@ function Detail() {
       <Header />
 
       <main className="mx-auto max-w-[1280px] px-8 pb-24 pt-8">
-        {/* Crumb */}
-        <div className="flex flex-wrap items-center justify-between gap-3 text-[13px] text-muted-foreground">
+        {/* Crumb / top bar */}
+        <div
+          className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[oklch(0.235_0.18_268)]/15 px-5 py-3 text-[13px] text-muted-foreground shadow-[0_10px_30px_-22px_oklch(0.235_0.18_268/0.6)] backdrop-blur-xl"
+          style={{
+            background:
+              "linear-gradient(120deg, oklch(0.235 0.18 268 / 0.08) 0%, oklch(1 0 0 / 0.7) 45%, oklch(0.6 0.13 200 / 0.08) 100%)",
+          }}
+        >
           <div className="flex min-w-0 items-center gap-3">
             <Link
               to="/"
-              className="inline-flex cursor-pointer items-center gap-1.5 font-semibold text-foreground transition hover:text-[oklch(0.235_0.18_268)]"
+              className="inline-flex cursor-pointer items-center gap-1.5 rounded-full bg-[oklch(0.235_0.18_268)]/10 px-3 py-1.5 font-semibold text-[oklch(0.235_0.18_268)] transition hover:bg-[oklch(0.235_0.18_268)]/15"
             >
               <ArrowLeft className="h-4 w-4" /> Back to campaigns
             </Link>
-            <span>·</span>
-            <span className="font-mono">#{campaign.id}</span>
-            <span>·</span>
+            <span className="text-[oklch(0.235_0.18_268)]/30">·</span>
+            <span className="font-mono text-foreground">#{campaign.id}</span>
+            <span className="text-[oklch(0.235_0.18_268)]/30">·</span>
             <span className="truncate font-semibold text-foreground">{campaign.name}</span>
           </div>
-          <span className="font-mono text-[11.5px] uppercase tracking-[0.14em]">
+          <span className="rounded-full bg-[oklch(0.6_0.13_200)]/12 px-3 py-1 font-mono text-[11.5px] uppercase tracking-[0.14em] text-[oklch(0.42_0.11_215)]">
             data through yesterday EOD
           </span>
         </div>
