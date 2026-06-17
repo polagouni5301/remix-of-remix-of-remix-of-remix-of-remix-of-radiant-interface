@@ -466,7 +466,7 @@ function Detail() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.15, duration: 0.4 }}
-                  className="rounded-2xl border border-border bg-card p-6"
+                  className="rounded-2xl border border-[oklch(0.6_0.13_200)]/15 bg-card/75 p-6 shadow-[0_24px_60px_-40px_oklch(0.6_0.13_200/0.45)] backdrop-blur-xl"
                 >
                   <button
                     onClick={() => setEvidenceOpen((v) => !v)}
@@ -484,7 +484,7 @@ function Detail() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.4 }}
-                  className="rounded-2xl border border-border bg-card p-6"
+                  className="rounded-2xl border border-[oklch(0.58_0.19_300)]/15 bg-card/75 p-6 shadow-[0_24px_60px_-40px_oklch(0.58_0.19_300/0.4)] backdrop-blur-xl"
                 >
                   <div className="text-[11px] font-semibold tracking-[0.14em] text-muted-foreground">
                     CHANGE HISTORY · LAST 14 DAYS
