@@ -1209,31 +1209,46 @@ function MetricTile({ label, value, vs, tone }: { label: string; value: string; 
   );
 }
 
+const HISTORY_COLORS = [
+  "oklch(0.235 0.18 268)", // navy
+  "oklch(0.6 0.13 200)",   // teal
+  "oklch(0.58 0.19 300)",  // violet
+  "oklch(0.62 0.15 160)",  // green
+];
+
 function ChangeItem({
   label,
   title,
   sub,
   ago,
+  color = "oklch(0.235 0.18 268)",
   isLast,
 }: {
   label: string;
   title: string;
   sub?: string;
   ago: string;
+  color?: string;
   isLast?: boolean;
 }) {
   return (
     <li className="flex items-start gap-3">
       <div className="relative flex shrink-0 flex-col items-center">
-        <span className="relative z-10 mt-1.5 h-2.5 w-2.5 rounded-full border-2 border-[oklch(0.235_0.18_268)] bg-card" />
+        <span
+          className="relative z-10 mt-1.5 h-3 w-3 rounded-full border-2 bg-card"
+          style={{ borderColor: color, boxShadow: `0 0 0 3px color-mix(in oklab, ${color} 16%, transparent)` }}
+        />
         {!isLast && (
-          <div className="absolute top-[11px] h-[calc(100%+1.25rem)] w-0.5 bg-[oklch(0.235_0.18_268)]/30" />
+          <div
+            className="absolute top-[12px] h-[calc(100%+1.25rem)] w-0.5"
+            style={{ background: `linear-gradient(180deg, ${color}, color-mix(in oklab, ${color} 25%, transparent))` }}
+          />
         )}
       </div>
       <div className="flex-1">
         <div className="flex items-baseline justify-between gap-2">
           <div className="text-[14px]">
-            <span className="font-semibold text-[oklch(0.235_0.18_268)]">{label}</span>{" "}
+            <span className="font-semibold" style={{ color }}>{label}</span>{" "}
             <span className="text-muted-foreground">·</span>{" "}
             <span className="font-medium text-foreground">{title}</span>
           </div>
