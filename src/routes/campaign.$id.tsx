@@ -294,7 +294,7 @@ function Detail() {
   const isInvestigate = diag.kind === "investigate";
 
   return (
-    <div className="min-h-screen text-foreground" style={{ background: "var(--grad-canvas)" }}>
+    <div className="min-h-screen text-foreground bg-page-campaign">
       <Header />
 
       <main className="mx-auto max-w-[1280px] px-8 pb-24 pt-8">
