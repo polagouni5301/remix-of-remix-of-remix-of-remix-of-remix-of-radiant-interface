@@ -3,8 +3,8 @@ import { z } from "zod";
 
 export const getCampaigns = createServerFn({ method: "GET" })
   .handler(async () => {
-    const { supabase } = await import("@/integrations/supabase/client.server");
-    const { data, error } = await supabase
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
       .from("campaigns")
       .select("*")
       .order("last_action_days", { ascending: false });
@@ -16,8 +16,8 @@ export const getCampaigns = createServerFn({ method: "GET" })
 export const getCampaignByExternalId = createServerFn({ method: "GET" })
   .inputValidator((data) => z.object({ externalId: z.string() }).parse(data))
   .handler(async ({ data }) => {
-    const { supabase } = await import("@/integrations/supabase/client.server");
-    const { data: campaign, error } = await supabase
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data: campaign, error } = await supabaseAdmin
       .from("campaigns")
       .select("*")
       .eq("external_id", data.externalId)
@@ -29,8 +29,8 @@ export const getCampaignByExternalId = createServerFn({ method: "GET" })
 
 export const getOutcomes = createServerFn({ method: "GET" })
   .handler(async () => {
-    const { supabase } = await import("@/integrations/supabase/client.server");
-    const { data, error } = await supabase
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
+    const { data, error } = await supabaseAdmin
       .from("outcomes")
       .select("*")
       .order("created_at", { ascending: false })
@@ -42,7 +42,7 @@ export const getOutcomes = createServerFn({ method: "GET" })
 
 export const seedCampaigns = createServerFn({ method: "POST" })
   .handler(async () => {
-    const { supabase } = await import("@/integrations/supabase/client.server");
+    const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
     const campaignsData = [
       {
@@ -113,7 +113,7 @@ export const seedCampaigns = createServerFn({ method: "POST" })
       },
     ];
 
-    const { error } = await supabase.from("campaigns").upsert(campaignsData, {
+    const { error } = await supabaseAdmin.from("campaigns").upsert(campaignsData, {
       onConflict: "external_id",
     });
 
@@ -144,7 +144,7 @@ export const seedCampaigns = createServerFn({ method: "POST" })
       },
     ];
 
-    const { error: outcomesError } = await supabase.from("outcomes").upsert(outcomesData, {
+    const { error: outcomesError } = await supabaseAdmin.from("outcomes").upsert(outcomesData, {
       onConflict: "id",
     });
 
