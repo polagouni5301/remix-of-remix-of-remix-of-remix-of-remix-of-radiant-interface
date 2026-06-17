@@ -429,7 +429,7 @@ function Home() {
                 <span className="text-[11px] font-mono uppercase tracking-[0.16em] text-muted-foreground">
                   Last week's actions
                 </span>
-                <button className="inline-flex items-center gap-1 text-[12px] font-medium text-primary hover:opacity-80">
+                <button className="inline-flex items-center gap-1 text-[12px] font-medium text-[oklch(0.235_0.18_268)] hover:opacity-80">
                   See all <ArrowUpRight className="h-3 w-3" />
                 </button>
               </div>
