@@ -180,7 +180,7 @@ function Home() {
           />
           <div className="relative flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div className="max-w-xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-card/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-primary">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[oklch(0.235_0.18_268_/_0.2)] bg-card/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.235_0.18_268)]">
                 <Sparkles className="h-3 w-3" /> Scout · campaign analyst
               </div>
               <h2 className="mt-3 font-display text-[24px] font-semibold tracking-tight md:text-[28px]">
