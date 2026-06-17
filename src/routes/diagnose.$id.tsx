@@ -62,7 +62,7 @@ function Diagnosing() {
         {/* Soft brand glow behind the loader */}
         <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 top-0 -z-0 h-[420px] w-[820px] -translate-x-1/2 blur-3xl"
+          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[820px] -translate-x-1/2 blur-3xl"
           style={{
             background:
               "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.18), transparent 70%), radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.12), transparent 75%)",
