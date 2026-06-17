@@ -532,8 +532,8 @@ function Home() {
       <DiagnoseModal
         open={open}
         onClose={() => setOpen(false)}
-        campaign={selected}
-        onRun={runDiagnosis}
+        campaignName={selected?.name || ""}
+        onSubmit={() => runDiagnosis()}
       />
     </div>
   );
