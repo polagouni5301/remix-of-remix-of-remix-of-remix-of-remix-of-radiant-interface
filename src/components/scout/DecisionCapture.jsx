@@ -104,7 +104,7 @@ export function DecisionCapture({
             <div className="p-7">
               <div className="flex items-start justify-between gap-4">
                 <div className="min-w-0">
-                  <div className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-primary">
+                  <div className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[oklch(0.235_0.18_268)]">
                     Decision capture
                   </div>
                   <h3 className="mt-1.5 font-display text-[22px] font-semibold leading-tight tracking-tight text-foreground">
@@ -144,19 +144,19 @@ export function DecisionCapture({
                     <button
                       key={o.key}
                       onClick={() => handle(o.key)}
-                      className="group flex w-full cursor-pointer items-center justify-between gap-4 rounded-2xl border border-border bg-background/60 px-4 py-3 text-left transition hover:-translate-y-[1px] hover:border-primary/40 hover:bg-card"
+                      className="group flex w-full cursor-pointer items-center justify-between gap-4 rounded-2xl border border-border bg-background/60 px-4 py-3 text-left transition hover:-translate-y-[1px] hover:border-[oklch(0.235_0.18_268)]/40 hover:bg-card"
                     >
                       <div className="flex items-center gap-3">
                         <span
                           className={`grid h-9 w-9 place-items-center rounded-xl ${
                             o.tone === "primary"
-                              ? "bg-primary/10 text-primary"
+                              ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)]"
                               : o.tone === "warm"
-                                ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.665_0.215_36)]"
+                                ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)]"
                                 : o.tone === "info"
                                   ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.38_0.16_268)]"
                                   : o.tone === "danger"
-                                    ? "bg-[oklch(0.94_0.05_45)] text-[oklch(0.665_0.215_36)]"
+                                    ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)]"
                                     : "bg-secondary text-muted-foreground"
                           }`}
                         >
@@ -171,7 +171,7 @@ export function DecisionCapture({
                           </div>
                         </div>
                       </div>
-                      <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-primary" />
+                      <ArrowRight className="h-4 w-4 shrink-0 text-muted-foreground transition group-hover:translate-x-0.5 group-hover:text-[oklch(0.235_0.18_268)]" />
                     </button>
                   ))}
                 </div>
@@ -188,7 +188,7 @@ export function DecisionCapture({
                       onChange={(e) => setNote(e.target.value)}
                       rows={3}
                       placeholder="e.g. Cap reduction at 10% instead of 13% for this cycle."
-                      className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-3 py-2.5 text-[13.5px] text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none"
+                      className="mt-2 w-full resize-none rounded-xl border border-border bg-background px-3 py-2.5 text-[13.5px] text-foreground placeholder:text-muted-foreground focus:border-[oklch(0.235_0.18_268)]/40 focus:outline-none"
                     />
                   </div>
                   <div className="flex items-center justify-end gap-2">
@@ -226,7 +226,7 @@ export function DecisionCapture({
                           onClick={() => setReason(r)}
                           className={`cursor-pointer rounded-xl border px-3 py-2 text-left text-[13px] transition ${
                             reason === r
-                              ? "border-primary bg-primary/10 text-foreground"
+                              ? "border-primary bg-[oklch(0.92_0.04_268)] text-foreground"
                               : "border-border bg-background text-muted-foreground hover:text-foreground"
                           }`}
                         >
@@ -240,7 +240,7 @@ export function DecisionCapture({
                     onChange={(e) => setNote(e.target.value)}
                     rows={2}
                     placeholder="Optional detail — what should Scout have caught?"
-                    className="w-full resize-none rounded-xl border border-border bg-background px-3 py-2.5 text-[13px] text-foreground placeholder:text-muted-foreground focus:border-primary/40 focus:outline-none"
+                    className="w-full resize-none rounded-xl border border-border bg-background px-3 py-2.5 text-[13px] text-foreground placeholder:text-muted-foreground focus:border-[oklch(0.235_0.18_268)]/40 focus:outline-none"
                   />
                   <div className="flex items-center justify-end gap-2">
                     <button

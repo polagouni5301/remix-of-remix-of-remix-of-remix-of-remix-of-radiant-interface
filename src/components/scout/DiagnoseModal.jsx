@@ -43,7 +43,7 @@ export function DiagnoseModal({ open, onClose, onSubmit, campaignName = "" }) {
                                   </div>
                
                 <div>
-                  <div className="text-[11px] -ml-5 font-semibold tracking-[0.14em] text-primary">
+                  <div className="text-[11px] -ml-5 font-semibold tracking-[0.14em] text-[oklch(0.235_0.18_268)]">
                     DIAGNOSE {campaignName && `· ${campaignName.toUpperCase()}`}
                   </div>
                   <h2 className="mt-1 -ml-5 font-display text-[26px] font-semibold tracking-tight text-foreground">
@@ -75,7 +75,7 @@ export function DiagnoseModal({ open, onClose, onSubmit, campaignName = "" }) {
                 <button
                   key={s}
                   onClick={() => setNote((n) => (n ? `${n} ${s}` : s))}
-                  className="cursor-pointer rounded-full border border-border bg-background px-4 py-1.5 text-[13px] text-foreground transition hover:border-primary/40 hover:bg-secondary"
+                  className="cursor-pointer rounded-full border border-border bg-background px-4 py-1.5 text-[13px] text-foreground transition hover:border-[oklch(0.235_0.18_268)]/40 hover:bg-secondary"
                 >
                   + {s}
                 </button>

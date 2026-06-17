@@ -153,7 +153,7 @@ const DIAGS: Record<string, Diag> = {
     appliedChange: (
       <>
         <b>WPCID 12346 — Google Search</b> daily budget $75 →{" "}
-        <span className="font-semibold text-primary">$65/day</span>
+        <span className="font-semibold text-[oklch(0.235_0.18_268)]">$65/day</span>
       </>
     ),
     appliedCopy:
@@ -303,7 +303,7 @@ function Detail() {
           <div className="flex min-w-0 items-center gap-3">
             <Link
               to="/"
-              className="inline-flex cursor-pointer items-center gap-1.5 font-semibold text-foreground transition hover:text-primary"
+              className="inline-flex cursor-pointer items-center gap-1.5 font-semibold text-foreground transition hover:text-[oklch(0.235_0.18_268)]"
             >
               <ArrowLeft className="h-4 w-4" /> Back to campaigns
             </Link>
@@ -347,7 +347,7 @@ function Detail() {
                   </div>
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="rounded-full bg-primary/10 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-primary">
+                      <span className="rounded-full bg-[oklch(0.92_0.04_268)] px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.16em] text-[oklch(0.235_0.18_268)]">
                         Scout · {diag.label}
                       </span>
                       <span className="rounded-full bg-card/80 px-2.5 py-1 text-[10.5px] font-mono uppercase tracking-widest text-muted-foreground">
@@ -376,7 +376,7 @@ function Detail() {
                       >
                         <RefreshCw className="h-3.5 w-3.5" /> Re-diagnose
                       </button>
-                    <button className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-[13px] font-semibold text-foreground transition hover:border-primary/40">
+                    <button className="inline-flex cursor-pointer items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-[13px] font-semibold text-foreground transition hover:border-[oklch(0.235_0.18_268)]/40">
                         <Copy className="h-3.5 w-3.5" /> Copy summary
                       </button>
                     </div>
@@ -384,8 +384,8 @@ function Detail() {
                 </div>
 
                 {/* Confidence card */}
-                <div className="rounded-2xl border border-primary/20 bg-card/80 p-5 backdrop-blur">
-                  <div className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-primary">
+                <div className="rounded-2xl border border-[oklch(0.235_0.18_268)]/20 bg-card/80 p-5 backdrop-blur">
+                  <div className="text-[10.5px] font-semibold uppercase tracking-[0.18em] text-[oklch(0.235_0.18_268)]">
                     Scout's confidence
                   </div>
                   <div className="mt-3 space-y-3">
@@ -576,7 +576,7 @@ function ActionPanel({
   if (diag.kind === "investigate") {
     return (
       <div>
-        <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.665_0.215_36)]">
+        <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.235_0.18_268)]">
           INVESTIGATE · NO DIRECT LEVER
         </div>
         <h3 className="mt-1 font-display text-[22px] font-semibold tracking-tight">
@@ -617,7 +617,7 @@ function ActionPanel({
   if (diag.kind === "actionable-pacing") {
     return (
       <div>
-        <div className="text-[11px] font-semibold tracking-[0.14em] text-primary">
+        <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.235_0.18_268)]">
           RECOMMENDED ACTION
         </div>
         <h3 className="mt-1 font-display text-[22px] font-semibold tracking-tight">
@@ -649,8 +649,8 @@ function ActionPanel({
           </span>
         </div>
 
-        <div className="mt-5 flex items-start gap-2 rounded-xl border border-primary/20 bg-primary/5 p-3 text-[13px] text-foreground">
-          <Zap className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+        <div className="mt-5 flex items-start gap-2 rounded-xl border border-[oklch(0.235_0.18_268)]/20 bg-[oklch(0.92_0.04_268)]/50 p-3 text-[13px] text-foreground">
+          <Zap className="mt-0.5 h-4 w-4 shrink-0 text-[oklch(0.235_0.18_268)]" />
           <p>
             <b>If applied:</b> I'll re-check pacing at +1d, +3d, and +7d to confirm the cycle lands in band.
           </p>
@@ -675,7 +675,7 @@ function ActionPanel({
   if (diag.kind === "actionable-cpl") {
     return (
       <div>
-        <div className="text-[11px] font-semibold tracking-[0.14em] text-primary">
+        <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.235_0.18_268)]">
           RECOMMENDED ACTION
         </div>
         <h3 className="mt-1 font-display text-[22px] font-semibold tracking-tight">
@@ -685,15 +685,15 @@ function ActionPanel({
           {["-\"how to\"", "-\"cost\"", "-\"prices\""].map((t) => (
             <span
               key={t}
-              className="rounded-md border border-[oklch(0.9_0.022_80)] bg-[oklch(0.946_0.016_82)] px-3 py-1.5 font-mono text-[13px] text-[oklch(0.665_0.215_36)]"
+              className="rounded-md border border-[oklch(0.235_0.18_268)]/20 bg-[oklch(0.92_0.04_268)] px-3 py-1.5 font-mono text-[13px] text-[oklch(0.235_0.18_268)]"
             >
               {t}
             </span>
           ))}
         </div>
 
-        <div className="mt-5 flex items-start gap-2 rounded-xl border border-primary/20 bg-primary/5 p-3 text-[13px] text-foreground">
-          <Zap className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+        <div className="mt-5 flex items-start gap-2 rounded-xl border border-[oklch(0.235_0.18_268)]/20 bg-[oklch(0.92_0.04_268)]/50 p-3 text-[13px] text-foreground">
+          <Zap className="mt-0.5 h-4 w-4 shrink-0 text-[oklch(0.235_0.18_268)]" />
           <p>
             <b>If applied:</b> I'll watch CPL at +1d, +3d, and +7d to confirm the
             non-converting spend is gone — and that no good queries got caught.
@@ -775,7 +775,7 @@ function AppliedScreen({
           className={`grid h-14 w-14 place-items-center rounded-full ${
             isInvestigated
               ? "bg-[oklch(0.92_0.04_268)] text-[oklch(0.38_0.16_268)]"
-              : "bg-[oklch(0.94_0.05_45)] text-[oklch(0.235_0.18_268)]"
+              : "bg-[oklch(0.92_0.04_268)] text-[oklch(0.235_0.18_268)]"
           }`}
         >
           {isInvestigated ? <Search className="h-6 w-6" /> : <Check className="h-7 w-7" strokeWidth={3} />}
@@ -845,7 +845,7 @@ function AppliedScreen({
                   </code>
                 </span>
                 <span>· Outcome check at +1d, +3d, +7d</span>
-                <a href="#" className="font-semibold text-primary hover:underline">
+                <a href="#" className="font-semibold text-[oklch(0.235_0.18_268)] hover:underline">
                   Open in Admin
                 </a>
               </div>
@@ -858,7 +858,7 @@ function AppliedScreen({
                   "linear-gradient(120deg, oklch(0.92 0.04 268) 0%, oklch(1 0 0) 100%)",
               }}
             >
-              <Timer className="mt-0.5 h-5 w-5 text-primary" />
+              <Timer className="mt-0.5 h-5 w-5 text-[oklch(0.235_0.18_268)]" />
               <p className="text-[14px] text-foreground">
                 <b>You just reclaimed ~28 minutes.</b>{" "}
                 <span className="text-muted-foreground">
@@ -874,7 +874,7 @@ function AppliedScreen({
         <div className="mt-7 flex flex-wrap items-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-[13.5px] font-semibold text-foreground transition hover:border-primary/40"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2.5 text-[13.5px] font-semibold text-foreground transition hover:border-[oklch(0.235_0.18_268)]/40"
           >
             <ArrowLeft className="h-4 w-4" /> Back to campaigns
           </Link>
@@ -1168,7 +1168,7 @@ function ConfidenceRow({ label, filled }: { label: string; filled: number }) {
 function ReasoningBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mt-6 border-l-2 border-primary/70 pl-5">
-      <div className="text-[11px] font-semibold tracking-[0.14em] text-primary">{title}</div>
+      <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.235_0.18_268)]">{title}</div>
       <div className="mt-2 text-[14.5px] leading-relaxed text-foreground">{children}</div>
     </div>
   );
@@ -1180,7 +1180,7 @@ function Chips({ chips }: { chips: string[] }) {
       {chips.map((c) => (
         <span
           key={c}
-          className="rounded-md px-2.5 py-1 text-[12px] font-medium text-primary"
+          className="rounded-md px-2.5 py-1 text-[12px] font-medium text-[oklch(0.235_0.18_268)]"
           style={{ background: "oklch(0.665 0.215 36 / 0.1)" }}
         >
           {c}
@@ -1194,7 +1194,7 @@ function MetricTile({ label, value, vs, tone }: { label: string; value: string; 
   const bg = tone === "warn" ? "oklch(0.94 0.05 45)" : "oklch(0.94 0.05 45)";
   const border = tone === "warn" ? "oklch(0.9 0.022 80)" : "oklch(0.9 0.022 80)";
   return (
-    <div className="cursor-pointer rounded-xl border p-4 transition-colors hover:border-primary/40" style={{ background: bg, borderColor: border }}>
+    <div className="cursor-pointer rounded-xl border p-4 transition-colors hover:border-[oklch(0.235_0.18_268)]/40" style={{ background: bg, borderColor: border }}>
       <div className="text-[10.5px] font-semibold tracking-[0.14em] text-muted-foreground">{label}</div>
       <div className="mt-2 font-display text-[24px] font-semibold text-foreground">{value}</div>
       <div className="text-[12px] text-muted-foreground">{vs}</div>
@@ -1226,7 +1226,7 @@ function ChangeItem({
       <div className="flex-1">
         <div className="flex items-baseline justify-between gap-2">
           <div className="text-[14px]">
-            <span className="font-semibold text-primary">{label}</span>{" "}
+            <span className="font-semibold text-[oklch(0.235_0.18_268)]">{label}</span>{" "}
             <span className="text-muted-foreground">·</span>{" "}
             <span className="font-medium text-foreground">{title}</span>
           </div>
@@ -1327,16 +1327,16 @@ function KeywordTable() {
         <div
           key={r.kw}
           className={`grid cursor-pointer grid-cols-[1.6fr_auto_auto_auto_auto] gap-x-3 border-b border-border py-2.5 text-[13px] transition-colors hover:bg-muted last:border-b-0 ${
-            r.bad ? "bg-[oklch(0.946_0.016_82)]" : ""
+            r.bad ? "bg-[oklch(0.92_0.04_268)]" : ""
           }`}
         >
-          <span className={`truncate ${r.bad ? "text-primary" : "text-foreground"}`}>
+          <span className={`truncate ${r.bad ? "text-[oklch(0.235_0.18_268)]" : "text-foreground"}`}>
             {r.bad && "⚠ "}
             {r.kw}
           </span>
           <span className="text-right text-muted-foreground">{r.match}</span>
           <span className="text-right text-foreground">{r.spend}</span>
-          <span className={`text-right ${r.bad ? "font-semibold text-primary" : "text-foreground"}`}>{r.conv}</span>
+          <span className={`text-right ${r.bad ? "font-semibold text-[oklch(0.235_0.18_268)]" : "text-foreground"}`}>{r.conv}</span>
           <span className="text-right text-foreground">{r.cpl}</span>
         </div>
       ))}

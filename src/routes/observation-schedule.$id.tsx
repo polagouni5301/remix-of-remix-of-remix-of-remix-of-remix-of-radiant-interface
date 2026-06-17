@@ -53,7 +53,7 @@ function ObservationSchedulePage() {
           <div className="flex min-w-0 items-center gap-3">
             <Link
               to="/"
-              className="inline-flex cursor-pointer items-center gap-1.5 font-semibold text-foreground transition hover:text-primary"
+              className="inline-flex cursor-pointer items-center gap-1.5 font-semibold text-foreground transition hover:text-[oklch(0.235_0.18_268)]"
             >
               <ArrowLeft className="h-4 w-4" /> Back to campaigns
             </Link>
@@ -123,7 +123,7 @@ function ObservationSchedulePage() {
               {OBSERVATIONS.map((item) => (
                 <div
                   key={item.offset}
-                  className="cursor-pointer rounded-xl border border-border bg-background p-5 transition-colors hover:border-primary/40"
+                  className="cursor-pointer rounded-xl border border-border bg-background p-5 transition-colors hover:border-[oklch(0.235_0.18_268)]/40"
                 >
                   <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:gap-6">
                     <div className="inline-flex min-w-0 shrink-0 items-center gap-2 text-[12px] font-semibold uppercase tracking-[0.15em] text-[oklch(0.38_0.16_268)] sm:w-[110px]">
