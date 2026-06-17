@@ -65,7 +65,7 @@ function Diagnosing() {
           className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[820px] -translate-x-1/2 blur-3xl"
           style={{
             background:
-              "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.18), transparent 70%), radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.12), transparent 75%)",
+              "radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.18), transparent 70%), radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.12), transparent 75%)",
           }}
         />
         <motion.div
@@ -82,19 +82,19 @@ function Diagnosing() {
           >
             <defs>
               <radialGradient id="scoutGlow" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stopColor="oklch(0.78 0.13 40)" stopOpacity="0.35" />
-                <stop offset="70%" stopColor="oklch(0.78 0.13 40)" stopOpacity="0" />
+                <stop offset="0%" stopColor="oklch(0.38 0.16 268)" stopOpacity="0.35" />
+                <stop offset="70%" stopColor="oklch(0.38 0.16 268)" stopOpacity="0" />
               </radialGradient>
               <linearGradient id="scoutArc" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="oklch(0.665 0.215 36)" stopOpacity="0" />
-                <stop offset="60%" stopColor="oklch(0.665 0.215 36)" stopOpacity="1" />
-                <stop offset="100%" stopColor="oklch(0.78 0.13 40)" stopOpacity="1" />
+                <stop offset="0%" stopColor="oklch(0.235 0.18 268)" stopOpacity="0" />
+                <stop offset="60%" stopColor="oklch(0.235 0.18 268)" stopOpacity="1" />
+                <stop offset="100%" stopColor="oklch(0.38 0.16 268)" stopOpacity="1" />
               </linearGradient>
             </defs>
             <circle cx="140" cy="140" r="135" fill="url(#scoutGlow)" />
             {/* Static thin rings */}
-            <circle cx="140" cy="140" r="118" fill="none" stroke="oklch(0.665 0.215 36 / 0.18)" strokeWidth="1" strokeDasharray="2 6" />
-            <circle cx="140" cy="140" r="98" fill="none" stroke="oklch(0.665 0.215 36 / 0.12)" strokeWidth="1" />
+            <circle cx="140" cy="140" r="118" fill="none" stroke="oklch(0.235 0.18 268 / 0.18)" strokeWidth="1" strokeDasharray="2 6" />
+            <circle cx="140" cy="140" r="98" fill="none" stroke="oklch(0.235 0.18 268 / 0.12)" strokeWidth="1" />
             {/* Rotating arc - outer */}
             <motion.g
               animate={{ rotate: 360 }}
@@ -108,7 +108,7 @@ function Diagnosing() {
                 strokeWidth="2.5"
                 strokeLinecap="round"
               />
-              <circle cx="258" cy="140" r="4" fill="oklch(0.78 0.13 40)" />
+              <circle cx="258" cy="140" r="4" fill="oklch(0.38 0.16 268)" />
             </motion.g>
             {/* Rotating arc - inner reverse */}
             <motion.g
@@ -119,11 +119,11 @@ function Diagnosing() {
               <path
                 d="M 140 42 A 98 98 0 0 0 42 140"
                 fill="none"
-                stroke="oklch(0.665 0.215 36 / 0.55)"
+                stroke="oklch(0.235 0.18 268 / 0.55)"
                 strokeWidth="1.5"
                 strokeDasharray="4 4"
               />
-              <circle cx="42" cy="140" r="3" fill="oklch(0.665 0.215 36)" />
+              <circle cx="42" cy="140" r="3" fill="oklch(0.235 0.18 268)" />
             </motion.g>
             {/* Pulsing scan ring */}
             <motion.circle
@@ -131,7 +131,7 @@ function Diagnosing() {
               cy="140"
               r="80"
               fill="none"
-              stroke="oklch(0.78 0.13 40)"
+              stroke="oklch(0.38 0.16 268)"
               strokeWidth="1.5"
               animate={{ r: [80, 130, 80], opacity: [0.55, 0, 0.55] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: "easeOut" }}
@@ -178,7 +178,7 @@ function Diagnosing() {
 
           <div className="mt-4 h-2 w-full overflow-hidden rounded-full bg-secondary">
             <motion.div
-              className="h-full rounded-full bg-primary"
+              className="h-full rounded-full bg-[oklch(0.235_0.18_268)]"
               animate={{ width: `${progress * 100}%` }}
               transition={{ duration: 0.4, ease: "easeOut" }}
             />
@@ -231,8 +231,8 @@ function Diagnosing() {
 function StepDot({ state }) {
   if (state === "done") {
     return (
-      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary">
-        <Check className="h-3.5 w-3.5 text-primary-foreground" strokeWidth={3} />
+      <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[oklch(0.235_0.18_268)]">
+        <Check className="h-3.5 w-3.5 text-[oklch(0.235_0.18_268)]-foreground" strokeWidth={3} />
       </div>
     );
   }
@@ -240,11 +240,11 @@ function StepDot({ state }) {
     return (
       <div className="relative flex h-6 w-6 items-center justify-center">
         <motion.span
-          className="absolute inset-0 rounded-full border-2 border-primary"
+          className="absolute inset-0 rounded-full border-2 border-[oklch(0.235_0.18_268)]"
           animate={{ scale: [1, 1.25, 1], opacity: [0.6, 0, 0.6] }}
           transition={{ duration: 1.4, repeat: Infinity, ease: "easeOut" }}
         />
-        <span className="h-3 w-3 rounded-full bg-primary" />
+        <span className="h-3 w-3 rounded-full bg-[oklch(0.235_0.18_268)]" />
       </div>
     );
   }

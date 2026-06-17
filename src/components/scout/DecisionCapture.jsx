@@ -98,7 +98,7 @@ export function DecisionCapture({
               className="h-1 w-full"
               style={{
                 background:
-                  "linear-gradient(90deg, oklch(0.665 0.215 36), oklch(0.78 0.13 40))",
+                  "linear-gradient(90deg, oklch(0.235 0.18 268), oklch(0.38 0.16 268))",
               }}
             />
             <div className="p-7">
@@ -200,7 +200,7 @@ export function DecisionCapture({
                     </button>
                     <button
                       onClick={() => onDecision("applied", { kind: "adjust", note })}
-                      className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13px] font-semibold text-primary-foreground transition hover:opacity-95"
+                      className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[13px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
                     >
                       <Check className="h-4 w-4" /> Apply adjusted
                     </button>
@@ -226,7 +226,7 @@ export function DecisionCapture({
                           onClick={() => setReason(r)}
                           className={`cursor-pointer rounded-xl border px-3 py-2 text-left text-[13px] transition ${
                             reason === r
-                              ? "border-primary bg-[oklch(0.92_0.04_268)] text-foreground"
+                              ? "border-[oklch(0.235_0.18_268)] bg-[oklch(0.92_0.04_268)] text-foreground"
                               : "border-border bg-background text-muted-foreground hover:text-foreground"
                           }`}
                         >

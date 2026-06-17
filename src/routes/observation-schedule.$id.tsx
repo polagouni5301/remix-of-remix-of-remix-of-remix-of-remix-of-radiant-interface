@@ -83,7 +83,7 @@ function ObservationSchedulePage() {
             className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full opacity-40"
             style={{
               background:
-                "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.55), transparent)",
+                "radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.55), transparent)",
             }}
           />
           <div className="relative flex items-start gap-6">

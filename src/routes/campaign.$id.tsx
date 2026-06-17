@@ -337,7 +337,7 @@ function Detail() {
                 className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full opacity-40"
                 style={{
                   background:
-                    "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.55), transparent)",
+                    "radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.55), transparent)",
                 }}
               />
               <div className="relative grid grid-cols-1 gap-8 p-8 md:p-10 lg:grid-cols-[1fr_320px]">
@@ -512,7 +512,7 @@ function Detail() {
                 className="h-1 w-full"
                 style={{
                   background:
-                    "linear-gradient(90deg, oklch(0.665 0.215 36), oklch(0.78 0.13 40))",
+                    "linear-gradient(90deg, oklch(0.235 0.18 268), oklch(0.38 0.16 268))",
                 }}
               />
               <div className="grid grid-cols-1 gap-6 p-8 lg:grid-cols-[1fr_320px]">
@@ -525,7 +525,7 @@ function Detail() {
                   <p className="mt-3 text-[13px] italic leading-relaxed text-foreground">
                     "{diag.appliedCopy}"
                   </p>
-                  <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-[13px] font-semibold text-primary-foreground transition hover:opacity-95">
+                  <button className="mt-4 inline-flex items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-4 py-2 text-[13px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95">
                     <Copy className="h-3.5 w-3.5" /> Copy + log to CRM
                   </button>
                 </aside>
@@ -602,7 +602,7 @@ function ActionPanel({
         <div className="mt-5 flex items-center gap-3">
           <button
             onClick={() => onApply("investigated")}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[14px] font-semibold text-primary-foreground transition hover:opacity-95"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
           >
             <ExternalLink className="h-4 w-4" /> Take me there
           </button>
@@ -635,7 +635,7 @@ function ActionPanel({
           max={90}
           value={budget}
           onChange={(e) => setBudget(Number(e.target.value))}
-          className="mt-1 w-full accent-[oklch(0.665_0.215_36)]"
+          className="mt-1 w-full accent-[oklch(0.235_0.18_268)]"
         />
         <div className="mt-3 flex items-end justify-between">
           <span className="text-[12px] text-muted-foreground">
@@ -659,7 +659,7 @@ function ActionPanel({
         <div className="mt-5 flex items-center gap-4">
           <button
             onClick={() => onApply("applied")}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[14px] font-semibold text-primary-foreground transition hover:opacity-95"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
           >
             <Check className="h-4 w-4" /> Apply this change
           </button>
@@ -703,7 +703,7 @@ function ActionPanel({
         <div className="mt-5 flex items-center gap-4">
           <button
             onClick={() => onApply("applied")}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[14px] font-semibold text-primary-foreground transition hover:opacity-95"
+            className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
           >
             <Check className="h-4 w-4" /> Add negatives
           </button>
@@ -731,7 +731,7 @@ function ActionPanel({
       <div className="mt-5 flex items-center gap-3">
         <button
           onClick={() => onApply("ack")}
-          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[14px] font-semibold text-primary-foreground transition hover:opacity-95"
+          className="inline-flex cursor-pointer items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[14px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
         >
           <Check className="h-4 w-4" /> Acknowledge
         </button>
@@ -762,13 +762,13 @@ function AppliedScreen({
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className="mt-10 grid place-items-center"
     >
-      <div className="relative w-full max-w-[760px] overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-[0_30px_60px_-30px_oklch(0.665_0.215_36/0.18)]">
+      <div className="relative w-full max-w-[760px] overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-[0_30px_60px_-30px_oklch(0.235_0.18_268/0.18)]">
         <div
           aria-hidden
           className="pointer-events-none absolute -right-16 -top-10 h-[260px] w-[260px] opacity-50"
           style={{
             background:
-              "radial-gradient(closest-side, oklch(0.78 0.13 40 / 0.4), transparent)",
+              "radial-gradient(closest-side, oklch(0.38 0.16 268 / 0.4), transparent)",
           }}
         />
         <div
@@ -881,7 +881,7 @@ function AppliedScreen({
           {isInvestigated ? (
             <a
               href="#"
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2.5 text-[13.5px] font-semibold text-primary-foreground transition hover:opacity-95"
+              className="inline-flex items-center gap-2 rounded-full bg-[oklch(0.235_0.18_268)] px-5 py-2.5 text-[13.5px] font-semibold text-[oklch(0.235_0.18_268)]-foreground transition hover:opacity-95"
             >
               Open in Admin <ArrowRight className="h-4 w-4" />
             </a>
@@ -1046,7 +1046,7 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
         <div className="border-t border-border pt-4">
           <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="80% of spend on a single publisher." />
           <PublisherBars data={[
-            { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.665 0.215 36)" },
+            { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.235 0.18 268)" },
             { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.38 0.16 268)" },
             { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.38 0.16 268)" },
           ]} />
@@ -1073,8 +1073,8 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
         <PublisherBars data={[
           { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.38 0.16 268)" },
           { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.78 0.13 40)" },
-          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.665 0.215 36)" },
+          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.38 0.16 268)" },
+          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.235 0.18 268)" },
         ]} />
         <div className="border-t border-border pt-4">
           <EvidenceTitle label="CVR · LAST 14 DAYS" headline="4.2% → 2.3% — uniform across segments." />
@@ -1154,7 +1154,7 @@ function ConfidenceRow({ label, filled }: { label: string; filled: number }) {
               key={i}
               className="h-2.5 w-2.5 rounded-[3px]"
               style={{
-                background: i < filled ? "oklch(0.665 0.215 36)" : "oklch(0.9 0.022 80)",
+                background: i < filled ? "oklch(0.235 0.18 268)" : "oklch(0.9 0.022 80)",
               }}
             />
           ))}
@@ -1167,7 +1167,7 @@ function ConfidenceRow({ label, filled }: { label: string; filled: number }) {
 
 function ReasoningBlock({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="mt-6 border-l-2 border-primary/70 pl-5">
+    <div className="mt-6 border-l-2 border-[oklch(0.235_0.18_268)]/70 pl-5">
       <div className="text-[11px] font-semibold tracking-[0.14em] text-[oklch(0.235_0.18_268)]">{title}</div>
       <div className="mt-2 text-[14.5px] leading-relaxed text-foreground">{children}</div>
     </div>
@@ -1181,7 +1181,7 @@ function Chips({ chips }: { chips: string[] }) {
         <span
           key={c}
           className="rounded-md px-2.5 py-1 text-[12px] font-medium text-[oklch(0.235_0.18_268)]"
-          style={{ background: "oklch(0.665 0.215 36 / 0.1)" }}
+          style={{ background: "oklch(0.235 0.18 268 / 0.1)" }}
         >
           {c}
         </span>
@@ -1218,9 +1218,9 @@ function ChangeItem({
   return (
     <li className="flex items-start gap-3">
       <div className="relative flex shrink-0 flex-col items-center">
-        <span className="relative z-10 mt-1.5 h-2.5 w-2.5 rounded-full border-2 border-primary bg-card" />
+        <span className="relative z-10 mt-1.5 h-2.5 w-2.5 rounded-full border-2 border-[oklch(0.235_0.18_268)] bg-card" />
         {!isLast && (
-          <div className="absolute top-[11px] h-[calc(100%+1.25rem)] w-0.5 bg-primary/30" />
+          <div className="absolute top-[11px] h-[calc(100%+1.25rem)] w-0.5 bg-[oklch(0.235_0.18_268)]/30" />
         )}
       </div>
       <div className="flex-1">
@@ -1249,9 +1249,9 @@ function EvidenceTitle({ label, headline }: { label: string; headline: string })
 
 function SparkChart({ kind }: { kind: "pacing" | "cpl-up" | "cvr-down" }) {
   const stroke =
-    kind === "cvr-down" ? "oklch(0.38 0.16 268)" : kind === "pacing" ? "oklch(0.38 0.16 268)" : "oklch(0.665 0.215 36)";
+    kind === "cvr-down" ? "oklch(0.38 0.16 268)" : kind === "pacing" ? "oklch(0.38 0.16 268)" : "oklch(0.235 0.18 268)";
   const fill =
-    kind === "cvr-down" ? "oklch(0.38 0.16 268 / 0.12)" : kind === "pacing" ? "oklch(0.38 0.16 268 / 0.12)" : "oklch(0.665 0.215 36 / 0.12)";
+    kind === "cvr-down" ? "oklch(0.38 0.16 268 / 0.12)" : kind === "pacing" ? "oklch(0.38 0.16 268 / 0.12)" : "oklch(0.235 0.18 268 / 0.12)";
   const path =
     kind === "pacing"
       ? "M 0 90 L 60 70 L 120 50 L 180 35 L 240 25 L 300 18"
