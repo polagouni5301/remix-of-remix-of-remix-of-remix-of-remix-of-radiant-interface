@@ -1053,8 +1053,8 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
           <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="80% of spend on a single publisher." />
           <PublisherBars data={[
             { p: "WPCID 12346", v: 5712, share: "80%", cpl: "$51", cvr: "3.4%", color: "oklch(0.235 0.18 268)" },
-            { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.38 0.16 268)" },
-            { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.38 0.16 268)" },
+            { p: "WPCID 12345", v: 1141, share: "16%", cpl: "$48", cvr: "3.8%", color: "oklch(0.6 0.13 200)" },
+            { p: "Other (3)", v: 285, share: "4%", cpl: "$62", cvr: "2.9%", color: "oklch(0.58 0.19 300)" },
           ]} />
         </div>
       </div>
@@ -1077,10 +1077,10 @@ function EvidenceForKind({ diag }: { diag: Diag }) {
       <div className="mt-5 space-y-5">
         <EvidenceTitle label="PUBLISHER DISTRIBUTION · LAST 7 DAYS" headline="Drop is uniform across all publishers." />
         <PublisherBars data={[
-          { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.38 0.16 268)" },
-          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.235 0.18 268)" },
+          { p: "WPCID 12346", v: 1812, share: "43%", cpl: "$74", cvr: "2.4%", color: "oklch(0.235 0.18 268)" },
+          { p: "WPCID 12345", v: 1140, share: "27%", cpl: "$69", cvr: "2.2%", color: "oklch(0.6 0.13 200)" },
+          { p: "WPCID 12347", v: 850, share: "20%", cpl: "$71", cvr: "2.3%", color: "oklch(0.58 0.19 300)" },
+          { p: "WPCID 12348", v: 430, share: "10%", cpl: "$78", cvr: "2.1%", color: "oklch(0.62 0.15 160)" },
         ]} />
         <div className="border-t border-border pt-4">
           <EvidenceTitle label="CVR · LAST 14 DAYS" headline="4.2% → 2.3% — uniform across segments." />
