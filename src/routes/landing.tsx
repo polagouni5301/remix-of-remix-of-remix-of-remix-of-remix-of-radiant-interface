@@ -689,7 +689,7 @@ function LandingPage() {
 
       <section
         id="capabilities"
-        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.985_0.008_82)_0%,oklch(0.946_0.016_82)_100%)] py-12"
+        className="bg-grad-capabilities border-b border-border/70 py-12"
       >
         <Shell>
           <SectionLabel n="03" label="Capabilities" />
@@ -733,7 +733,7 @@ function LandingPage() {
 
       <section
         id="architecture"
-        className="border-b border-border/70 bg-[linear-gradient(180deg,oklch(0.946_0.016_82)_0%,oklch(0.946_0.016_82)_100%)] py-12"
+        className="bg-grad-architecture border-b border-border/70 py-12"
       >
         <Shell>
           <SectionLabel n="04" label="Architecture" />
