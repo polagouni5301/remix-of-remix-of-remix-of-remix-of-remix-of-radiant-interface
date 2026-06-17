@@ -468,15 +468,15 @@ function Home() {
                 ))}
               </ul>
 
-              <div className="mt-6 rounded-xl border border-primary/15 bg-primary/5 p-4">
-                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-primary">
+              <div className="mt-6 rounded-xl border border-[oklch(0.235_0.18_268_/_0.18)] bg-[oklch(0.92_0.04_268_/_0.5)] p-4">
+                <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-widest text-[oklch(0.235_0.18_268)]">
                   <Sparkles className="h-3 w-3" /> Scout suggests
                 </div>
                 <p className="mt-2 text-[13px] leading-relaxed text-foreground">
                   Two HVAC campaigns share the same drifting negative-keyword list.
                   Want me to diagnose them as a group?
                 </p>
-                <button className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-primary hover:underline">
+                <button className="mt-3 inline-flex items-center gap-1.5 text-[12px] font-semibold text-[oklch(0.235_0.18_268)] hover:underline">
                   Run group diagnosis <ArrowUpRight className="h-3 w-3" />
                 </button>
               </div>
