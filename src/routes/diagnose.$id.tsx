@@ -56,9 +56,18 @@ function Diagnosing() {
   const progress = Math.min(step / STEPS.length, 1);
 
   return (
-    <div className="min-h-screen text-foreground" style={{ background: "var(--grad-canvas)" }}>
+    <div className="min-h-screen text-foreground bg-page-diagnose">
       <Header />
-      <main className="mx-auto flex max-w-[920px] flex-col items-center px-8  pb-24">
+      <main className="relative mx-auto flex max-w-[920px] flex-col items-center px-8 pb-24">
+        {/* Soft brand glow behind the loader */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 top-0 -z-10 h-[420px] w-[820px] -translate-x-1/2 blur-3xl"
+          style={{
+            background:
+              "radial-gradient(closest-side, oklch(0.665 0.215 36 / 0.18), transparent 70%), radial-gradient(closest-side, oklch(0.235 0.18 268 / 0.12), transparent 75%)",
+          }}
+        />
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

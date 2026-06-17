@@ -88,7 +88,7 @@ function Home() {
   };
 
   return (
-    <div className="min-h-screen text-foreground" style={{ background: "var(--grad-canvas)" }}>
+    <div className="min-h-screen text-foreground bg-page-home">
       <Header />
 
       <main className="mx-auto max-w-[1320px] px-8 pb-24 pt-10">
