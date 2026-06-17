@@ -232,7 +232,7 @@ function StepDot({ state }) {
   if (state === "done") {
     return (
       <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[oklch(0.235_0.18_268)]">
-        <Check className="h-3.5 w-3.5 text-[oklch(0.235_0.18_268)]-foreground" strokeWidth={3} />
+        <Check className="h-3.5 w-3.5 text-[oklch(0.99_0_0)]" strokeWidth={3} />
       </div>
     );
   }
