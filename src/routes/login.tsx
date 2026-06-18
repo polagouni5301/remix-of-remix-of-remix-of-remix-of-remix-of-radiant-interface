@@ -14,8 +14,6 @@ import {
   Quote,
 } from "lucide-react";
 import { ScoutIconMark } from "../components/scout/Logo";
-import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable/index";
 
 const LOGIN_BG =
   "https://images.unsplash.com/photo-1614851099175-e5b30eb6f696?auto=format&fit=crop&w=1600&q=80";
@@ -51,41 +49,12 @@ function LoginPage() {
       return;
     }
     setLoading(true);
-
-    const { error: signInError } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    setLoading(false);
-
-    if (signInError) {
-      setError(signInError.message);
-      return;
-    }
-
+    // Auth removed — go straight to the workspace.
     navigate({ to: "/" });
   };
 
   const signInWithGoogle = async () => {
     setError(null);
-    setLoading(true);
-
-    const result = await lovable.auth.signInWithOAuth("google", {
-      redirect_uri: window.location.origin,
-    });
-
-    setLoading(false);
-
-    if (result.error) {
-      setError(result.error.message || "Google sign-in failed.");
-      return;
-    }
-
-    if (result.redirected) {
-      return;
-    }
-
     navigate({ to: "/" });
   };
 
