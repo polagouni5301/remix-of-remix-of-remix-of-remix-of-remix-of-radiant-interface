@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate, redirect } from "@tanstack/react-router";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import {
   Search,
@@ -17,13 +17,11 @@ import {
   Rows3,
   Database,
 } from "lucide-react";
-import { useMemo, useState, useEffect } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { useMemo, useState } from "react";
 import { Header } from "../components/scout/Header";
 import { DiagnoseModal } from "../components/scout/DiagnoseModal";
-import { getCampaigns, getOutcomes, seedCampaigns } from "../lib/campaigns.functions";
+import { campaignsList, outcomesList } from "../data/campaigns";
 import { useAuth } from "../lib/auth-context";
-import { useServerFn } from "@tanstack/react-start";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -48,40 +46,16 @@ function toneOf(c: any): "success" | "warning" | "neutral" {
 
 function Home() {
   const navigate = useNavigate();
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [selected, setSelected] = useState<any>(null);
   const [filter, setFilter] = useState<Filter>("All");
   const [view, setView] = useState<"grid" | "list">("grid");
 
-  const fetchCampaigns = useServerFn(getCampaigns);
-  const fetchOutcomes = useServerFn(getOutcomes);
-  const seedData = useServerFn(seedCampaigns);
-
-  const { data: campaigns = [], isLoading: campaignsLoading, refetch } = useQuery({
-    queryKey: ["campaigns"],
-    queryFn: fetchCampaigns,
-  });
-
-  const { data: dbOutcomes = [] } = useQuery({
-    queryKey: ["outcomes"],
-    queryFn: fetchOutcomes,
-  });
-
-  // Seed data if empty
-  useEffect(() => {
-    if (!campaignsLoading && campaigns.length === 0) {
-      seedData().then(() => refetch());
-    }
-  }, [campaignsLoading, campaigns.length]);
-
-  // Redirect to login if not authenticated
-  useEffect(() => {
-    if (!authLoading && !user) {
-      navigate({ to: "/login" });
-    }
-  }, [authLoading, user]);
+  const campaigns = campaignsList;
+  const campaignsLoading = false;
+  const dbOutcomes = outcomesList;
 
   const openModal = (c: any) => {
     setSelected(c);
