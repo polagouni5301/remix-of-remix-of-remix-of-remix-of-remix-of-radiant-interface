@@ -77,3 +77,19 @@ export const outcomes = [
 export function getCampaign(id) {
   return campaigns.find((c) => c.id === id);
 }
+
+// Flat shape used by the workspace/listing page (previously served from the DB).
+export const campaignsList = campaigns.map((c) => ({
+  id: c.id,
+  external_id: c.id,
+  vertical: c.vertical,
+  name: c.name,
+  note: c.note,
+  metric_label: c.metric.label,
+  metric_value: c.metric.value,
+  metric_vs: c.metric.vs,
+  metric_tone: c.metric.tone,
+  last_action_days: c.lastActionDays,
+}));
+
+export const outcomesList = outcomes.map((o, i) => ({ id: String(i + 1), ...o }));
