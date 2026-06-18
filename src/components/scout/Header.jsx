@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "react-router-dom";
 import { LogOut, User } from "lucide-react";
 import { LocaliQLogo } from "./Logo";
 import { useAuth } from "@/lib/auth-context";
