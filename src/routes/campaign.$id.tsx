@@ -598,7 +598,7 @@ function ActionPanel({
           Deep-links to the LP + tracking screen with checks pre-loaded.
         </p>
 
-        <div className="mt-5 rounded-xl border border-border bg-accent/40 p-5">
+        <div className="mt-5 rounded-xl border border-border bg-[oklch(0.965_0.02_255)] p-5">
           <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
             Pre-loaded checks
           </div>
@@ -811,7 +811,7 @@ function AppliedScreen({
         </p>
 
         {isInvestigated ? (
-          <div className="mt-7 rounded-2xl border border-border bg-accent/40 p-5">
+          <div className="mt-7 rounded-2xl border border-border bg-[oklch(0.965_0.02_255)] p-5">
             <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
               What to verify
             </div>
@@ -842,7 +842,7 @@ function AppliedScreen({
           </div>
         ) : (
           <>
-            <div className="mt-7 rounded-2xl border border-border bg-accent/40 p-5">
+            <div className="mt-7 rounded-2xl border border-border bg-[oklch(0.965_0.02_255)] p-5">
               <div className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 What changed
               </div>

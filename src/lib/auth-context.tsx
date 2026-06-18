@@ -1,16 +1,22 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import type { User } from "@supabase/supabase-js";
+import { createContext, useContext } from "react";
+
+interface DemoUser {
+  email: string;
+  name: string;
+}
 
 interface AuthContextType {
-  user: User | null;
+  user: DemoUser | null;
   loading: boolean;
   signOut: () => Promise<void>;
 }
 
+// Auth removed — the app runs fully on hardcoded front-end data.
+const DEMO_USER: DemoUser = { email: "jordan@localiq.com", name: "Jordan" };
+
 const AuthContext = createContext<AuthContextType>({
-  user: null,
-  loading: true,
+  user: DEMO_USER,
+  loading: false,
   signOut: async () => {},
 });
 
@@ -19,29 +25,8 @@ export function useAuth() {
 }
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user ?? null);
-      setLoading(false);
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user ?? null);
-    });
-
-    return () => subscription.unsubscribe();
-  }, []);
-
-  const signOut = async () => {
-    await supabase.auth.signOut();
-    setUser(null);
-  };
-
   return (
-    <AuthContext.Provider value={{ user, loading, signOut }}>
+    <AuthContext.Provider value={{ user: DEMO_USER, loading: false, signOut: async () => {} }}>
       {children}
     </AuthContext.Provider>
   );
