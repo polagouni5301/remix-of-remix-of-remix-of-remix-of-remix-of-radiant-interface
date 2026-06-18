@@ -119,15 +119,22 @@
                  radial-gradient(700px 480px at 50% 110%, oklch(0.94 0.05 45 / 0.32), transparent 65%),
                  linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.985 0.012 60) 60%, oklch(0.97 0.018 60) 100%);
 
+  /* Clean, cool canvas — crisp white with airy blue/slate tints, no cream.
+     Used by the campaign page so navy content reads on a fresh surface. */
+  --grad-canvas-cool: radial-gradient(1100px 600px at 4% -12%, oklch(0.96 0.024 248 / 0.7), transparent 60%),
+                      radial-gradient(960px 540px at 104% 2%, oklch(0.96 0.028 262 / 0.65), transparent 60%),
+                      radial-gradient(700px 480px at 50% 116%, oklch(0.97 0.02 230 / 0.45), transparent 66%),
+                      linear-gradient(180deg, oklch(1 0 0) 0%, oklch(0.99 0.008 245) 55%, oklch(0.982 0.012 250) 100%);
+
   /* Per-page accents layered on top of the shared canvas. */
   --grad-page-home:     radial-gradient(980px 560px at 92% -4%, oklch(0.665 0.215 36 / 0.24), transparent 60%),
                         radial-gradient(820px 520px at 0% 12%, oklch(0.235 0.18 268 / 0.16), transparent 62%),
                         radial-gradient(640px 460px at 50% 120%, oklch(0.78 0.13 40 / 0.10), transparent 65%);
   --grad-page-diagnose: radial-gradient(680px 520px at 50% 0%, oklch(0.665 0.215 36 / 0.18), transparent 65%),
                         radial-gradient(520px 420px at 50% 100%, oklch(0.235 0.18 268 / 0.10), transparent 70%);
-  --grad-page-campaign: radial-gradient(880px 560px at 100% -6%, oklch(0.235 0.18 268 / 0.20), transparent 60%),
-                        radial-gradient(760px 520px at -4% 30%, oklch(0.665 0.215 36 / 0.18), transparent 64%),
-                        radial-gradient(620px 460px at 60% 116%, oklch(0.38 0.16 268 / 0.10), transparent 66%);
+  --grad-page-campaign: radial-gradient(900px 560px at 100% -8%, oklch(0.9 0.06 255 / 0.45), transparent 58%),
+                        radial-gradient(760px 520px at -4% 26%, oklch(0.93 0.045 232 / 0.4), transparent 62%),
+                        radial-gradient(620px 460px at 60% 118%, oklch(0.92 0.05 268 / 0.28), transparent 66%);
   --grad-page-schedule: radial-gradient(820px 520px at 6% 0%, oklch(0.235 0.18 268 / 0.16), transparent 60%),
                         radial-gradient(660px 480px at 100% 70%, oklch(0.665 0.215 36 / 0.12), transparent 65%);
 
@@ -162,7 +169,7 @@
   background: var(--grad-page-diagnose), var(--grad-canvas);
 }
 @utility bg-page-campaign {
-  background: var(--grad-page-campaign), var(--grad-canvas);
+  background: var(--grad-page-campaign), var(--grad-canvas-cool);
 }
 @utility bg-page-schedule {
   background: var(--grad-page-schedule), var(--grad-canvas);
